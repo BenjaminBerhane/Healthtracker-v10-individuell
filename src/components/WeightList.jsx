@@ -2,7 +2,7 @@ import React from 'react'
 
 function WeightList() {
   return (
-    <div>WeightList</div>
+    <div className=''>WeightList</div>
   )
 }
 
