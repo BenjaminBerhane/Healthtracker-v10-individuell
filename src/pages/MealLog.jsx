@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import MealList from '../components/MealList';
 
 const MealLog = () => {
   const [meal, setMeal] = useState({
@@ -12,6 +13,7 @@ const MealLog = () => {
   });
 
   const [mealLogs, setMealLogs] = useState([]);
+  const [editingMeal, setEditingMeal] = useState(null);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -23,7 +25,12 @@ const MealLog = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setMealLogs([...mealLogs, meal]);
+    if (editingMeal) {
+      setMealLogs(mealLogs.map(m => (m === editingMeal ? meal : m)));
+      setEditingMeal(null);
+    } else {
+      setMealLogs([...mealLogs, meal]);
+    }
     setMeal({
       title: '',
       energy: '',
@@ -33,6 +40,11 @@ const MealLog = () => {
       fat: '',
       category: ''
     });
+  };
+
+  const handleEdit = (meal) => {
+    setMeal(meal);
+    setEditingMeal(meal);
   };
 
   return (
@@ -66,17 +78,10 @@ const MealLog = () => {
           <label>Kategori:</label>
           <input type="text" name="category" value={meal.category} onChange={handleChange} />
         </div>
-        <button type="submit">Logga måltid</button>
+        <button type="submit">{editingMeal ? 'Uppdatera måltid' : 'Logga måltid'}</button>
       </form>
 
-      <h2>Loggade måltider</h2>
-      <ul>
-        {mealLogs.map((loggedMeal, index) => (
-          <li key={index}>
-            <strong>{loggedMeal.title}</strong> - {loggedMeal.energy} kcal - {loggedMeal.date} - {loggedMeal.protein}g protein - {loggedMeal.carbohydrate}g kolhydrat - {loggedMeal.fat}g fett - {loggedMeal.category}
-          </li>
-        ))}
-      </ul>
+      <MealList meals={mealLogs} onEdit={handleEdit} />
     </div>
   );
 };
