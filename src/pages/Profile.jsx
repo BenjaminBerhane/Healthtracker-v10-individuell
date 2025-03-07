@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './Profile.css';
 
 const Profile = () => {
   const [gender, setGender] = useState('');
@@ -24,26 +25,26 @@ const Profile = () => {
 
   return (
     <form onSubmit={calculateTDEE}>
-      <h1>Profile</h1>
+      <h1>Profil</h1>
       <label>
         <input type="radio" name='gender' value='male' onChange={() => setGender('male')} required />
-        Male
-      </label><br />
+        Mann
+      </label>
       <label>
         <input type="radio" name='gender' value='female' onChange={() => setGender('female')} required />
-        Female
-      </label><br />
+        Kvinna
+      </label>
 
-      <label htmlFor="weight">Weight (kg):</label>
+      <label htmlFor="weight">Vikt (kg):</label>
       <input type="number" name="weight" value={weight} onChange={(e) => setWeight(e.target.value)} required />
 
-      <label htmlFor="height">Height (cm):</label>
+      <label htmlFor="height">Längd (cm):</label>
       <input type="number" name="height" value={height} onChange={(e) => setHeight(e.target.value)} required />
 
-      <label htmlFor="age">Age (years):</label>
+      <label htmlFor="age">Ålder (år):</label>
       <input type="number" name="age" value={age} onChange={(e) => setAge(e.target.value)} required />
 
-      <label htmlFor="activity-level">Activity Level:</label>
+      <label htmlFor="activity-level">Aktivitetsnivå:</label>
       <select value={activityLevel} onChange={(e) => setActivityLevel(e.target.value)}>
         <option value={1.2}>Stillasittande (1.2)</option>
         <option value={1.375}>Lätt aktiv (1.375)</option>
@@ -52,9 +53,9 @@ const Profile = () => {
         <option value={1.9}>Elit/idrottare (1.9)</option>
       </select>
 
-      <button type="submit">Submit</button>
+      <button type="submit">Spara</button>
 
-      {tdee && <h2>Ditt totala dagliga energibehov (TDEE): {tdee.toFixed(2)} kcal</h2>}
+      {tdee && <h2>Ditt totala dagliga energibehov: {tdee.toFixed(2)} kcal</h2>}
     </form>
   );
 }
