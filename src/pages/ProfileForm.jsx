@@ -63,6 +63,7 @@ const handleBirthDateChange = (e) => {
 
 
   return (
+    <>
     <form onSubmit={calculateTDEE}>
       <h1>Profil</h1>
       <label>
@@ -80,7 +81,7 @@ const handleBirthDateChange = (e) => {
       <label htmlFor="height">Längd (cm):</label>
       <input type="number" name="height" value={height} onChange={(e) => dispatch(setHeight(e.target.value))} required />
 
-      <label htmlFor="birthdate">Födelsedatum:</label>
+      <label htmlFor="birthdate">Födelsedatum (yyyy-mm-dd):</label>
       <input type="date" name="birthdate" onChange={handleBirthDateChange} required />
 
       <label htmlFor="activity-level">Aktivitetsnivå:</label>
@@ -94,10 +95,12 @@ const handleBirthDateChange = (e) => {
 
       <button type="submit">Spara</button>
 
-      {tdee && <h2>Ditt totala dagliga energibehov: {tdee.toFixed(2)} kcal</h2>}
+      {tdee && <h2>Ditt totala dagliga energibehov: <br />{tdee.toFixed(2)} kcal</h2>}
 
-      <WeightList weightData={weightArr} />
+      
     </form>
+    <WeightList weightData={weightArr} />
+    </>
   );
 }
 
