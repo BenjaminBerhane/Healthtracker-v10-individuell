@@ -1,14 +1,5 @@
-form {
-  display: flex;
-  flex-direction: column;
-  max-width: 300px;
-  margin: auto;
-}
-
-label {
-  margin: 10px 0;
-}
-
-input[type="number"] {
-  padding: 5px;
+.fixed-width {
+  max-width: 400px; /* Sätt önskad max-bredd */
+  width: 100%; /* Gör den responsiv */
+  margin: 0 auto; /* Centrera innehållet */
 }

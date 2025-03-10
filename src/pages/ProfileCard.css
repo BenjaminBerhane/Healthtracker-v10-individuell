@@ -1,11 +1,7 @@
-.profile-card {
-  border: 1px solid #ccc;
-  padding: 20px;
-  border-radius: 10px;
-  max-width: 400px;
-  margin: 20px auto;
-  text-align: center;
-  background-color: beige;
+.fixed-width {
+  max-width: 400px; /* Sätt önskad max-bredd */
+  width: 100%; /* Gör den responsiv */
+  margin: 0 auto; /* Centrera innehållet */
 }
 
 .profile-image img {

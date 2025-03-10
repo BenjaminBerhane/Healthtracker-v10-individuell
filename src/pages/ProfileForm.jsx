@@ -98,12 +98,12 @@ const ProfileForm = () => {
 
   return (
     <main className="flex flex-col items-center p-4 bg-green-50">
-      <form onSubmit={calculateTDEE} className="w-full max-w-md bg-white p-6 rounded-lg shadow-md mt-4 mx-auto">
+    <form onSubmit={calculateTDEE} className="w-full bg-white p-6 rounded-lg shadow-md mt-4 fixed-width">
         <h2 className="text-2xl font-bold text-center text-green-600 mb-4">Profil</h2>
         
         <div className="mb-4">
           <fieldset className="flex flex-col">
-            <legend className="mb-2">Kön:</legend>
+            <legend className="mb-2">Kön: (viktig för uträkning av kallorier)</legend>
             <label className="block">
               <input type="radio" id="gender-male" name='gender' value='male' checked={gender === 'male'} onChange={() => dispatch(setGender('male'))} required className="mr-2" />
               Man
