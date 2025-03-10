@@ -6,6 +6,7 @@ import {
   setHeight,
   setAge,
   setActivityLevel,
+  setGoal,
   setTDEE,
 } from '../features/profileSlice';
 import './ProfileForm.css';
@@ -18,6 +19,7 @@ const ProfileForm = () => {
     height,
     age,
     activityLevel,
+    goal,
     tdee,
   } = useSelector((state) => state.profile);
 
@@ -37,6 +39,7 @@ const ProfileForm = () => {
 
 const calculateTDEE = (e) => {
   e.preventDefault();
+  
   let bmr;
   if (gender === 'male') {
     bmr = 88.36 + (13.4 * weight) + (4.8 * height) - (5.7 * age);
@@ -44,7 +47,12 @@ const calculateTDEE = (e) => {
     bmr = 447.6 + (9.2 * weight) + (3.1 * height) - (4.3 * age);
   }
 
-  const totalEnergyExpenditure = bmr * activityLevel;
+  // Debugging logs
+  console.log("BMR:", bmr);
+  console.log("Activity Level:", activityLevel);
+  console.log("Goal:", goal);
+
+  const totalEnergyExpenditure = (bmr * activityLevel) + goal;
   dispatch(setTDEE(totalEnergyExpenditure));
 };
 
@@ -86,16 +94,26 @@ const handleBirthDateChange = (e) => {
 
       <label htmlFor="activity-level">Aktivitetsnivå:</label>
       <select value={activityLevel} onChange={(e) => dispatch(setActivityLevel(e.target.value))}>
-        <option value={1.2}>Stillasittande (1.2)</option>
-        <option value={1.375}>Lätt aktiv (1.375)</option>
-        <option value={1.55}>Måttligt aktiv (1.55)</option>
-        <option value={1.725}>Mycket aktiv (1.725)</option>
-        <option value={1.9}>Elit/idrottare (1.9)</option>
+        <option value={1.2}>Stillasittande (lite eller ingen träning)</option>
+        <option value={1.375}>Lätt aktiv (lätt träning/sport 1-3 dagar/vecka)</option>
+        <option value={1.55}>Måttligt aktiv (måttlig träning/sport 3-5 dagar/vecka)</option>
+        <option value={1.725}>Mycket aktiv (hård träning/sport 6-7 dagar/vecka)</option>
+        <option value={1.9}>Elit/idrottare (mycket hård träning, fysiskt jobb)</option>
+      </select>
+
+      <label htmlFor="goal">Mål:</label>
+      <select value={goal} onChange={(e) => dispatch(setGoal(parseFloat(e.target.value)))}>
+        <option value="-500">Gå ner i vikt</option> 
+        <option value="0">Hålla vikten</option>
+        <option value="500">Gå upp i vikt</option>
+        
       </select>
 
       <button type="submit">Spara</button>
 
-      {tdee && <h2>Ditt totala dagliga energibehov: <br />{tdee.toFixed(2)} kcal</h2>}
+      {tdee && (
+  <h2>Ditt totala dagliga energibehov: <br />{tdee.toFixed(2)} kcal</h2>
+)}
 
       
     </form>

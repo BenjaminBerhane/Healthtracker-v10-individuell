@@ -9,6 +9,7 @@ const profileSlice = createSlice({
     height: '',
     age: '',
     activityLevel: 1.2,
+    goal: '-500',
     tdee: null,
   },
   reducers: {
@@ -27,6 +28,9 @@ const profileSlice = createSlice({
     setActivityLevel: (state, action) => {
       state.activityLevel = action.payload;
     },
+    setGoal: (state, action) => {
+      state.goal = parseFloat(action.payload);
+    },
     setTDEE: (state, action) => {
       state.tdee = action.payload;
     },
@@ -39,6 +43,7 @@ export const {
   setHeight,
   setAge,
   setActivityLevel,
+  setGoal,
   setTDEE,
 } = profileSlice.actions;
 
