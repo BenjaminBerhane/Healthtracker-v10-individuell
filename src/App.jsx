@@ -3,7 +3,6 @@ import './App.css'
 import mealData from './utils/mockData'
 import { useEffect } from 'react';
 import Header from './components/Header'
-import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 
 
