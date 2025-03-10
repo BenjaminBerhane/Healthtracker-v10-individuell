@@ -1,9 +1,13 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router';
+import AddWeight from '../components/AddWeight';
 
 const ProfileCard = () => {
   const { weight, height, age, activityLevel, goal, tdee } = useSelector((state) => state.profile);
+
+  // Hämta första vikten
+  const currentWeight = weight.length > 0 ? weight[0].weight : 0;
 
   const getActivityLevelDescription = (activityLevel) => {
     switch (activityLevel) {
@@ -49,7 +53,7 @@ const ProfileCard = () => {
           <img src="src\assets\profilbild.jpg" alt="Profilbild" className="rounded-full w-28 h-28 object-cover" />
         </div>
 
-        <p className="mb-2 text-left text-lg"><strong>Vikt:</strong> {weight} kg</p>
+        <p className="mb-2 text-left text-lg"><strong>Vikt:</strong> {currentWeight} kg</p>
         <p className="mb-2 text-left text-lg"><strong>Längd:</strong> {height} cm</p>
         <p className="mb-2 text-left text-lg"><strong>Ålder:</strong> {age} år</p>
         <p className="mb-2 text-left text-lg"><strong>Aktivitetsnivå:</strong> {getActivityLevelDescription(activityLevel)}</p>
@@ -63,6 +67,7 @@ const ProfileCard = () => {
           Ändra Profil
         </button>
       </div>
+      <AddWeight />
     </main>
   );
 };

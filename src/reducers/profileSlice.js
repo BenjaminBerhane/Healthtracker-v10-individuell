@@ -1,18 +1,10 @@
-// src/features/profileSlice.js
 import { createSlice } from '@reduxjs/toolkit';
-
-export const setBirthDate = (date) => {
-  return {
-    type: 'profile/setBirthDate',
-    payload: date,
-  };
-};
 
 const profileSlice = createSlice({
   name: 'profile',
   initialState: {
     gender: 'male',
-    weight: 140,
+    weight: [{id: 1, weight: 140, date: "2025-03-11"}],
     height: 188,
     age: 47,
     activityLevel: 1.2,
@@ -21,6 +13,14 @@ const profileSlice = createSlice({
     birthDate: '',
   },
   reducers: {
+    addWeight: (state, action) => {
+      const newWeight = {
+        id: state.weight.length + 1,
+        weight: action.payload,
+        date: action.payload.date,
+      };
+      state.weight.push(newWeight);
+    },
     setGender: (state, action) => {
       state.gender = action.payload;
     },
@@ -48,7 +48,9 @@ const profileSlice = createSlice({
   },
 });
 
+// Exportera reducer och actions
 export const {
+  addWeight,
   setGender,
   setWeight,
   setHeight,
@@ -56,6 +58,7 @@ export const {
   setActivityLevel,
   setGoal,
   setTDEE,
+  setBirthDate,
 } = profileSlice.actions;
 
 export default profileSlice.reducer;

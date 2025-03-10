@@ -11,7 +11,6 @@ import {
   setTDEE,
   setBirthDate
 } from '../reducers/profileSlice';
-import './ProfileForm.css';
 import { useNavigate } from 'react-router-dom';
 
 const ProfileForm = () => {
@@ -63,13 +62,16 @@ const ProfileForm = () => {
     }
   }, [dispatch, gender, weight, height, age, activityLevel, goal]);
 
+  // Hämta senaste vikten
+  const latestWeight = weight.length > 0 ? weight[weight.length - 1].weight : 0;
+
   const calculateTDEE = (e) => {
     e.preventDefault();
     let bmr;
     if (gender === 'male') {
-      bmr = 88.36 + (13.4 * weight) + (4.8 * height) - (5.7 * age);
+      bmr = 88.36 + (13.4 * latestWeight) + (4.8 * height) - (5.7 * age);
     } else if (gender === 'female') {
-      bmr = 447.6 + (9.2 * weight) + (3.1 * height) - (4.3 * age);
+      bmr = 447.6 + (9.2 * latestWeight) + (3.1 * height) - (4.3 * age);
     }
 
     const totalEnergyExpenditure = (bmr * activityLevel) + goal;
