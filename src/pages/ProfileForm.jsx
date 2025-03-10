@@ -10,7 +10,7 @@ import {
   setGoal,
   setTDEE,
   setBirthDate
-} from '../features/profileSlice';
+} from '../reducers/profileSlice';
 import './ProfileForm.css';
 import { useNavigate } from 'react-router-dom';
 
