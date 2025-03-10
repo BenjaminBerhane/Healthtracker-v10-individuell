@@ -46,15 +46,15 @@ const ProfileCard = () => {
         <h2 className="text-2xl font-bold text-green-600 mb-4">Profilinformation</h2>
         
         <div className="flex justify-center mb-4">
-          <img src="default-profile.png" alt="Profilbild" className="rounded-full w-24 h-24 object-cover" />
+          <img src="src\assets\profilbild.jpg" alt="Profilbild" className="rounded-full w-28 h-28 object-cover" />
         </div>
 
-        <p className="mb-2"><strong>Vikt:</strong> {weight} kg</p>
-        <p className="mb-2"><strong>Längd:</strong> {height} cm</p>
-        <p className="mb-2"><strong>Ålder:</strong> {age} år</p>
-        <p className="mb-2"><strong>Aktivitetsnivå:</strong> {getActivityLevelDescription(activityLevel)}</p>
-        <p className="mb-2"><strong>Mål:</strong> {getGoalDescription(goal)}</p>
-        <p className="mb-4"><strong>Dagliga intag:</strong> {tdee ? Math.round(tdee) : 'Beräknas...'} kcal</p>
+        <p className="mb-2 text-left text-lg"><strong>Vikt:</strong> {weight} kg</p>
+        <p className="mb-2 text-left text-lg"><strong>Längd:</strong> {height} cm</p>
+        <p className="mb-2 text-left text-lg"><strong>Ålder:</strong> {age} år</p>
+        <p className="mb-2 text-left text-lg"><strong>Aktivitetsnivå:</strong> {getActivityLevelDescription(activityLevel)}</p>
+        <p className="mb-2 text-left text-lg"><strong>Mål:</strong> {getGoalDescription(goal)}</p>
+        <p className="mb-4 text-left text-lg"><strong>Dagliga intag:</strong> {tdee ? Math.round(tdee) : 'Beräknas...'} kcal</p>
 
         <button
           onClick={handleClick}

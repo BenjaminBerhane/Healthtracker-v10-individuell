@@ -103,28 +103,30 @@ const ProfileForm = () => {
         
         <div className="mb-4">
           <fieldset className="flex flex-col">
-            <legend className="mb-2">Kön: (viktig för uträkning av kallorier)</legend>
-            <label className="block">
-              <input type="radio" id="gender-male" name='gender' value='male' checked={gender === 'male'} onChange={() => dispatch(setGender('male'))} required className="mr-2" />
-              Man
-            </label>
-            <label className="block">
-              <input type="radio" id="gender-female" name='gender' value='female' checked={gender === 'female'} onChange={() => dispatch(setGender('female'))} required className="mr-2" />
-              Kvinna
-            </label>
+            <legend className="label-custom">Kön: (viktig för uträkning av kallorier)</legend>
+            <div className="flex">
+              <label className="block m-4">
+                <input type="radio" id="gender-male" name='gender' value='male' checked={gender === 'male'} onChange={() => dispatch(setGender('male'))} required className="mr-2" />
+                Man
+              </label>
+              <label className="block m-4">
+                <input type="radio" id="gender-female" name='gender' value='female' checked={gender === 'female'} onChange={() => dispatch(setGender('female'))} required className="mr-2" />
+                Kvinna
+              </label>
+            </div>
           </fieldset>
         </div>
 
-        <label htmlFor="weight" className="block mb-1">Vikt (kg):</label>
+        <label htmlFor="weight" className="label-custom">Vikt (kg):</label>
         <input type="number" id="weight" name="weight" value={weight || ''} onChange={(e) => dispatch(setWeight(e.target.value))} required className="block w-full border rounded p-2 mb-4" />
 
-        <label htmlFor="height" className="block mb-1">Längd (cm):</label>
+        <label htmlFor="height" className="label-custom">Längd (cm):</label>
         <input type="number" id="height" name="height" value={height || ''} onChange={(e) => dispatch(setHeight(e.target.value))} required className="block w-full border rounded p-2 mb-4" />
 
-        <label htmlFor="birthdate" className="block mb-1">Födelsedatum (yyyy-mm-dd):</label>
+        <label htmlFor="birthdate" className="label-custom">Födelsedatum (yyyy-mm-dd):</label>
         <input type="date" id="birthdate" name="birthdate" value={birthDate || ''} onChange={handleBirthDateChange} required className="block w-full border rounded p-2 mb-4" />
 
-        <label htmlFor="activity-level" className="block mb-1">Aktivitetsnivå:</label>
+        <label htmlFor="activity-level" className="label-custom">Aktivitetsnivå:</label>
         <select id="activity-level" value={activityLevel} onChange={(e) => dispatch(setActivityLevel(e.target.value))} className="block w-full border rounded p-2 mb-4">
           <option value={1.2}>Stillasittande (lite eller ingen träning)</option>
           <option value={1.375}>Lätt aktiv (lätt träning/sport 1-3 dagar/vecka)</option>
@@ -133,7 +135,7 @@ const ProfileForm = () => {
           <option value={1.9}>Elit/idrottare (mycket hård träning, fysiskt jobb)</option>
         </select>
 
-        <label htmlFor="goal" className="block mb-1">Mål:</label>
+        <label htmlFor="goal" className="label-custom">Mål:</label>
         <select id="goal" value={goal} onChange={(e) => dispatch(setGoal(parseFloat(e.target.value)))} className="block w-full border rounded p-2 mb-4">
           <option value="-500">Gå ner i vikt</option>
           <option value="0">Hålla vikten</option>
