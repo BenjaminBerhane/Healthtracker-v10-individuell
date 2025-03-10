@@ -8,7 +8,7 @@ function Navlinks() {
   return (
     <nav>
     <NavLink to="/" >Dashboard</NavLink>
-    <NavLink to="/profile">Profile</NavLink>
+    <NavLink to="/profilecard">Profile</NavLink>
     <NavLink to="/mealLog" >Meallog</NavLink>
   </nav>
   )
