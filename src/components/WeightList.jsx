@@ -5,8 +5,9 @@ import WeightListItem from './WeightListItem'
 function WeightList() {
   return (
     <>
-        <div className=''>WeightList</div>
+        <div className='max-w-[300px] mx-auto'>WeightList
         <WeightListItem/>
+        </div>
     </>
   )
 }
