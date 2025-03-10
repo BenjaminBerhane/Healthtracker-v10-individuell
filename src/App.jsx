@@ -17,7 +17,6 @@ function App() {
   return (
     <>
     <Header />
-    <Navbar />
     {console.log("Outlet should render below")}
     <Outlet />
     <Footer />
