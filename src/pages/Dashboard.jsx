@@ -1,8 +1,11 @@
 import React from 'react'
+import Profile from './Profile'
 
-function Dashboard() {
+const Dashboard = () => {
   return (
-    <div>Dashboard</div>
+    <div>
+      <Profile />
+    </div>
   )
 }
 

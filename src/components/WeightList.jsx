@@ -1,11 +1,14 @@
 import React from 'react'
 import {Button} from './ui/button'
+import WeightListItem from './WeightListItem'
 
-function WeightList() {
+function WeightList({weightData}) {
+
   return (
     <>
-        <div className=''>WeightList</div>
-        <Button>Hej </Button>
+        <div className='max-w-[300px] mx-auto'>WeightList
+        <WeightListItem weightData={weightData}/>
+        </div>
     </>
   )
 }
