@@ -7,9 +7,9 @@ import {Menu, X} from "lucide-react"
 function Navlinks() {
   return (
     <nav>
-    <NavLink >Dashboard</NavLink>
-    <NavLink  >Profile</NavLink>
-    <NavLink  >Meallog</NavLink>
+    <NavLink to="/" >Dashboard</NavLink>
+    <NavLink to="/profile">Profile</NavLink>
+    <NavLink to="/mealLog" >Meallog</NavLink>
   </nav>
   )
 }
