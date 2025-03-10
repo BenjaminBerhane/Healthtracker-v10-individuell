@@ -47,6 +47,21 @@ const calculateTDEE = (e) => {
   const totalEnergyExpenditure = bmr * activityLevel;
   dispatch(setTDEE(totalEnergyExpenditure));
 };
+
+const handleBirthDateChange = (e) => {
+  const birthDate = new Date(e.target.value);
+  const today = new Date();
+  const calculatedAge = today.getFullYear() - birthDate.getFullYear();
+  const monthDifference = today.getMonth() - birthDate.getMonth();
+
+  if (monthDifference < 0 || (monthDifference === 0 && today.getDate() < birthDate.getDate())) {
+    dispatch(setAge(calculatedAge - 1));
+  } else {
+    dispatch(setAge(calculatedAge));
+  }
+};
+
+
   return (
     <form onSubmit={calculateTDEE}>
       <h1>Profil</h1>
@@ -65,8 +80,8 @@ const calculateTDEE = (e) => {
       <label htmlFor="height">Längd (cm):</label>
       <input type="number" name="height" value={height} onChange={(e) => dispatch(setHeight(e.target.value))} required />
 
-      <label htmlFor="age">Ålder (år):</label>
-      <input type="number" name="age" value={age}  onChange={(e) => dispatch(setAge(e.target.value))} required />
+      <label htmlFor="birthdate">Födelsedatum:</label>
+      <input type="date" name="birthdate" onChange={handleBirthDateChange} required />
 
       <label htmlFor="activity-level">Aktivitetsnivå:</label>
       <select value={activityLevel} onChange={(e) => dispatch(setActivityLevel(e.target.value))}>
