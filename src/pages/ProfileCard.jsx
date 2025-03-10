@@ -58,7 +58,7 @@ const ProfileCard = () => {
       <p><strong>Ålder:</strong> {age} år</p>
       <p><strong>Aktivitetsnivå:</strong> {getActivityLevelDescription(activityLevel)}</p>
       <p><strong>Mål:</strong> {getGoalDescription(goal)}</p>
-      <p><strong>Dagliga intag:</strong> {tdee ? tdee.toFixed(2) : 'Beräknas...'} kcal</p>
+      <p><strong>Dagliga intag:</strong> {tdee ? Math.round(tdee) : 'Beräknas...'} kcal</p>
 
       <button onClick={() => handleClick()}>Ändra Profil</button>
     </div>
