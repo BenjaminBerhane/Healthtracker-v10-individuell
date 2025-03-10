@@ -1,16 +1,24 @@
 // src/features/profileSlice.js
 import { createSlice } from '@reduxjs/toolkit';
 
+export const setBirthDate = (date) => {
+  return {
+    type: 'profile/setBirthDate',
+    payload: date,
+  };
+};
+
 const profileSlice = createSlice({
   name: 'profile',
   initialState: {
-    gender: '',
-    weight: '',
-    height: '',
-    age: '',
+    gender: 'male',
+    weight: 140,
+    height: 188,
+    age: 47,
     activityLevel: 1.2,
-    goal: '-500',
-    tdee: null,
+    goal: -500,
+    tdee: 0,
+    birthDate: '',
   },
   reducers: {
     setGender: (state, action) => {
@@ -33,6 +41,9 @@ const profileSlice = createSlice({
     },
     setTDEE: (state, action) => {
       state.tdee = action.payload;
+    },
+    setBirthDate: (state, action) => {
+      state.birthDate = action.payload; 
     },
   },
 });
