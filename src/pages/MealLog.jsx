@@ -27,7 +27,7 @@ const MealLog = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Check if all fields are filled
+    // kolla att alla fält är ifyllda
     if (!meal.title || !meal.energy || !meal.date || !meal.protein || !meal.carbohydrate || !meal.fat || !meal.category) {
       setError('Alla fält måste fyllas i.');
       return;
