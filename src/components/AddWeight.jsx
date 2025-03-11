@@ -24,7 +24,7 @@ const AddWeight = () => {
 
   return (
     <div className="max-w-sm mx-auto bg-white rounded-lg shadow-md p-6 mt-4 fixed-width">
-    <h3 className="text-xl font-bold text-green-600 mb-4">Lägg till ny vikt</h3>
+    <h3 className="text-xl font-bold text-green-600 mb-4">Registrera din nya vikt</h3>
     <input
       type="number"
       value={newWeight}
@@ -32,7 +32,7 @@ const AddWeight = () => {
       placeholder="Ny vikt (kg)"
       className="block w-full border rounded p-2 mb-4"
     />
-    <button onClick={handleAddWeight} className="w-full bg-green-600 text-white rounded py-2 hover:bg-green-700 transition duration-200">Lägg till vikt</button>
+    <button onClick={handleAddWeight} className="w-full bg-green-600 text-white rounded py-2 hover:bg-green-700 transition duration-200">Registrera vikt</button>
     </div>
   )
 }
