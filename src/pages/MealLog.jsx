@@ -15,6 +15,7 @@ const MealLog = () => {
 
   const [mealLogs, setMealLogs] = useState([]);
   const [editingMeal, setEditingMeal] = useState(null);
+  const [error, setError] = useState('');
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -26,6 +27,12 @@ const MealLog = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    // Check if all fields are filled
+    if (!meal.title || !meal.energy || !meal.date || !meal.protein || !meal.carbohydrate || !meal.fat || !meal.category) {
+      setError('Alla fält måste fyllas i.');
+      return;
+    }
+    setError('');
     if (editingMeal) {
       setMealLogs(mealLogs.map(m => (m === editingMeal ? meal : m)));
       setEditingMeal(null);
@@ -51,6 +58,7 @@ const MealLog = () => {
   return (
     <div className="container mx-auto p-4">
       <form onSubmit={handleSubmit} className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+        {error && <p className="text-red-500 text-xs italic mb-4">{error}</p>}
         <div className="mb-4">
           <label className="block text-gray-700 text-sm font-bold mb-2">Titel:</label>
           <input type="text" name="title" value={meal.title} onChange={handleChange} className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
