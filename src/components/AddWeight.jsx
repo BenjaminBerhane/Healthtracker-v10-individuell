@@ -3,7 +3,7 @@ import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { addWeight } from '../reducers/profileSlice'
 
-const AddWeight = () => {
+const AddWeight = ({onSubmit}) => {
 
   const [newWeight, setNewWeight] = useState(''); 
   const dispatch = useDispatch();
@@ -19,6 +19,7 @@ const AddWeight = () => {
         date: formattedDate, // Lägg till datumet i vikten
       }));
       setNewWeight('');
+      onSubmit(); // Notify parent (Dashboard) to switch back to CurrentWeight
     }
   };
 
@@ -32,7 +33,13 @@ const AddWeight = () => {
       placeholder="Ny vikt (kg)"
       className="block w-full border rounded p-2 mb-4"
     />
-    <button onClick={handleAddWeight} className="w-full bg-green-600 text-white rounded py-2 hover:bg-green-700 transition duration-200">Registrera vikt</button>
+    <button onClick={handleAddWeight} className="w-full bg-primary text-white rounded py-2 hover:bg-green-700 transition duration-200">Registrera vikt</button>
+    <button 
+        onClick={onSubmit} 
+        className="w-full mt-2 bg-secondary text-white rounded py-2 hover:bg-gray-600 transition duration-200"
+      >
+        Avbryt
+      </button>
     </div>
   )
 }
