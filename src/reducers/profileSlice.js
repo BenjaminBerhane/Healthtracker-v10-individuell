@@ -21,6 +21,9 @@ const profileSlice = createSlice({
       };
       state.weight.push(newWeight);
     },
+    displayWeight: (state, action) => {
+      state.weight = action.payload;
+    },
     setGender: (state, action) => {
       state.gender = action.payload;
     },
@@ -51,6 +54,7 @@ const profileSlice = createSlice({
 // Exportera reducer och actions
 export const {
   addWeight,
+  displayWeight,
   setGender,
   setWeight,
   setHeight,
@@ -60,5 +64,7 @@ export const {
   setTDEE,
   setBirthDate,
 } = profileSlice.actions;
+
+export const selectTDEE = (state) => state.profile.tdee;
 
 export default profileSlice.reducer;
