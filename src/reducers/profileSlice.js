@@ -65,4 +65,6 @@ export const {
   setBirthDate,
 } = profileSlice.actions;
 
+export const selectTDEE = (state) => state.profile.tdee;
+
 export default profileSlice.reducer;

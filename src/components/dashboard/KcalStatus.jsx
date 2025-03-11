@@ -1,9 +1,18 @@
-import React from 'react'
+import React from 'react';
+import { useSelector } from 'react-redux';
+
 
 const KcalStatus = () => {
-  return (
-    <section>KcalStatus</section>
-  )
-}
+/*   const tdee = useSelector(selectTDEE);
+  const consumedCalories = useSelector(selectTodayCalories); */
+/*   const remainingKcal = tdee - consumedCalories; // Calculate remaining kcal */
 
-export default KcalStatus
+  return (
+    <section className='card'>
+      <h3>Kalorier kvar idag</h3>
+     {/*  <p>{remainingKcal} kcal</p> */}
+    </section>
+  );
+};
+
+export default KcalStatus;
