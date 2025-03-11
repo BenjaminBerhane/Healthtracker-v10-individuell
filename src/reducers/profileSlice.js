@@ -8,15 +8,15 @@ const profileSlice = createSlice({
     height: 188,
     age: 47,
     activityLevel: 1.2,
-    goal: -500,
+    goal: 0,
     tdee: 0,
-    birthDate: '',
+    birthDate: '1977-12-16',
   },
   reducers: {
     addWeight: (state, action) => {
       const newWeight = {
         id: state.weight.length + 1,
-        weight: action.payload,
+        weight: action.payload.weight,
         date: action.payload.date,
       };
       state.weight.push(newWeight);

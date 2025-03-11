@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import WeightList from '../components/WeightList';
 import { useDispatch, useSelector } from 'react-redux';
 import {
@@ -9,7 +9,8 @@ import {
   setActivityLevel,
   setGoal,
   setTDEE,
-  setBirthDate
+  setBirthDate,
+  addWeight
 } from '../reducers/profileSlice';
 import { useNavigate } from 'react-router-dom';
 
@@ -27,65 +28,64 @@ const ProfileForm = () => {
     birthDate
   } = useSelector((state) => state.profile);
 
-  const weightArr = [
-    {
-      id: 1,
-      weight: 100,
-      date: "2023-01-01"
-    },
-    {
-      id: 2,
-      weight: 102,
-      date: "2023-01-12"
-    }
-  ];
+  const latestWeight = weight.length > 0 ? weight[weight.length - 1].weight : '';
+  const [weightInput, setWeightInput] = useState(latestWeight);
 
-  // Effekt för att sätta initiala värden om de finns
   useEffect(() => {
-    if (gender) {
-      dispatch(setGender(gender));
-    }
-    if (weight) {
-      dispatch(setWeight(weight));
-    }
-    if (height) {
-      dispatch(setHeight(height));
-    }
-    if (age) {
-      dispatch(setAge(age));
-    }
-    if (activityLevel) {
-      dispatch(setActivityLevel(activityLevel));
-    }
-    if (goal) {
-      dispatch(setGoal(goal));
-    }
-  }, [dispatch, gender, weight, height, age, activityLevel, goal]);
+    if (gender) dispatch(setGender(gender));
+    if (height) dispatch(setHeight(height));
+    if (age) dispatch(setAge(age));
+    if (activityLevel) dispatch(setActivityLevel(activityLevel));
+    if (goal) dispatch(setGoal(goal));
+  }, [dispatch, gender, height, age, activityLevel, goal]);
 
-  // Hämta senaste vikten
-  const latestWeight = weight.length > 0 ? weight[weight.length - 1].weight : 0;
+  useEffect(() => {
+    calculateTDEE(); // Beräkna TDEE när goal ändras
+  }, [goal, weight, activityLevel]); // Lyssna på förändringar i dessa värden
 
-  const calculateTDEE = (e) => {
-    e.preventDefault();
+  const calculateTDEE = () => {
+    const currentWeight = parseFloat(latestWeight);
+    if (isNaN(currentWeight) || !gender || !height || !activityLevel || !goal) {
+      console.error("Missing values for TDEE calculation");
+      return;
+    }
+
     let bmr;
     if (gender === 'male') {
-      bmr = 88.36 + (13.4 * latestWeight) + (4.8 * height) - (5.7 * age);
+      bmr = 88.36 + (13.4 * currentWeight) + (4.8 * height) - (5.7 * age);
     } else if (gender === 'female') {
-      bmr = 447.6 + (9.2 * latestWeight) + (3.1 * height) - (4.3 * age);
+      bmr = 447.6 + (9.2 * currentWeight) + (3.1 * height) - (4.3 * age);
     }
 
     const totalEnergyExpenditure = (bmr * activityLevel) + goal;
     dispatch(setTDEE(totalEnergyExpenditure));
+  };
+
+  const handleWeightChange = (e) => {
+    setWeightInput(e.target.value);
+  };
+
+  const handleSave = (e) => {
+    e.preventDefault();
+
+    const newWeightValue = parseFloat(weightInput);
+    const hasWeightChanged = newWeightValue !== latestWeight;
+
+    const date = new Date().toISOString().split('T')[0];
+
+    // Lägg till vikten i weight-arrayen endast om den har ändrats
+    if (hasWeightChanged) {
+        dispatch(addWeight({ weight: newWeightValue, date }));
+    }
 
     // Navigera tillbaka till ProfileCard
     navigate('/profilecard');
-  };
+};
 
   const handleBirthDateChange = (e) => {
     const birthDateValue = e.target.value;
-    dispatch(setBirthDate(birthDateValue)); // Dispatcha födelsedatumet
+    dispatch(setBirthDate(birthDateValue));
     
-    // Räkna ålder baserat på födelsedatumet
     const birthDateObj = new Date(birthDateValue);
     const today = new Date();
     const calculatedAge = today.getFullYear() - birthDateObj.getFullYear();
@@ -100,7 +100,7 @@ const ProfileForm = () => {
 
   return (
     <main className="flex flex-col items-center p-4 bg-green-50">
-    <form onSubmit={calculateTDEE} className="w-full bg-white p-6 rounded-lg shadow-md mt-4 fixed-width">
+      <form className="w-full bg-white p-6 rounded-lg shadow-md mt-4 fixed-width">
         <h2 className="text-2xl font-bold text-center text-green-600 mb-4">Profil</h2>
         
         <div className="mb-4">
@@ -120,7 +120,15 @@ const ProfileForm = () => {
         </div>
 
         <label htmlFor="weight" className="label-custom">Vikt (kg):</label>
-        <input type="number" id="weight" name="weight" value={weight || ''} onChange={(e) => dispatch(setWeight(e.target.value))} required className="block w-full border rounded p-2 mb-4" />
+        <input
+          type="number"
+          id="weight"
+          name="weight"
+          value={weightInput}
+          onChange={handleWeightChange}
+          required
+          className="block w-full border rounded p-2 mb-4"
+        />
 
         <label htmlFor="height" className="label-custom">Längd (cm):</label>
         <input type="number" id="height" name="height" value={height || ''} onChange={(e) => dispatch(setHeight(e.target.value))} required className="block w-full border rounded p-2 mb-4" />
@@ -144,7 +152,7 @@ const ProfileForm = () => {
           <option value="500">Gå upp i vikt</option>
         </select>
 
-        <button type="submit" className="w-full bg-green-600 text-white rounded py-2 hover:bg-green-700">Spara</button>
+        <button type="button" onClick={handleSave} className="w-full bg-green-600 text-white rounded py-2 hover:bg-green-700">Spara</button>
 
         {tdee && (
           <h2 className="text-lg text-green-600 mt-4 text-center">
@@ -153,7 +161,7 @@ const ProfileForm = () => {
           </h2>
         )}
       </form>
-      <WeightList weightData={weightArr} />
+      <WeightList weightData={Array.isArray(weight) ? weight : []} />
     </main>
   );
 }
