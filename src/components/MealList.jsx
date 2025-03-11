@@ -7,7 +7,7 @@ const MealList = ({ meals, onEdit }) => {
 
   return (
     <div>
-      <h2>Loggade måltider</h2>
+      <h2 className="font-extrabold">Loggade måltider</h2>
       <ul>
         {sortedMeals.map((meal, index) => (
           <li key={index}>
