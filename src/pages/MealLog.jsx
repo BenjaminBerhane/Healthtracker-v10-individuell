@@ -1,8 +1,15 @@
 import React, { useState } from 'react';
 import MealList from '../components/MealList';
-import '../pages/MealLog.css';
+import { useSelector, useDispatch } from "react-redux";
+import { addMeal, updateMeal } from "../reducers/mealSlice";
+import { v4 as uuidv4 } from "uuid";
 
 const MealLog = () => {
+
+  const dispatch = useDispatch();
+  const mealLogs = useSelector((state) => state.meals?.mealLogs ?? []);
+
+
   const [meal, setMeal] = useState({
     title: '',
     energy: '',
@@ -13,7 +20,6 @@ const MealLog = () => {
     category: ''
   });
 
-  const [mealLogs, setMealLogs] = useState([]);
   const [editingMeal, setEditingMeal] = useState(null);
   const [error, setError] = useState('');
 
@@ -34,10 +40,10 @@ const MealLog = () => {
     }
     setError('');
     if (editingMeal) {
-      setMealLogs(mealLogs.map(m => (m === editingMeal ? meal : m)));
+      dispatch(updateMeal(meal));
       setEditingMeal(null);
     } else {
-      setMealLogs([...mealLogs, meal]);
+      dispatch(addMeal({ ...meal, id: uuidv4() }));
     }
     setMeal({
       title: '',
