@@ -132,7 +132,7 @@
     @apply p-4 min-h-screen;
   }
   .card {
-    @apply bg-card text-card-foreground w-fit rounded-md m-1 h-fit drop-shadow-[1px_1px_4px_rgba(0,0,0,0.1)];
+    @apply bg-card flex flex-col gap-2 text-card-foreground w-fit rounded-md m-1 h-fit drop-shadow-[1px_1px_4px_rgba(0,0,0,0.1)];
   }
 }
 
