@@ -3,14 +3,14 @@ import { createSlice } from '@reduxjs/toolkit';
 const profileSlice = createSlice({
   name: 'profile',
   initialState: {
-    gender: 'male',
-    weight: [{id: 1, weight: 140, date: "2025-03-11"}],
-    height: 188,
-    age: 47,
-    activityLevel: 1.2,
+    gender: '',
+    weight: [{id: 0, weight: 0, date: ""}],
+    height: 0,
+    age: 0,
+    activityLevel: 0,
     goal: 0,
     tdee: 0,
-    birthDate: '1977-12-16',
+    birthDate: 'åååå-mm-dd',
   },
   reducers: {
     addWeight: (state, action) => {
