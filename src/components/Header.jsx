@@ -5,7 +5,7 @@ import Navbar from './Navbar'
 
 const Header = () => {
   return (
-    <header className='bg-primary sticky top-0 z-[20] mx-auto flex w-full items-center justify-between border-b border-grey-500 p-8'>
+    <header className='bg-primary text-white sticky top-0 z-[20] mx-auto flex w-full items-center justify-between border-b border-grey-500 p-8'>
       <Logo onClick={() => { window.location.href = '/' }} />
       <Navbar />
     </header>
