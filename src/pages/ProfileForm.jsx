@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import WeightList from '../components/WeightList';
 import { useDispatch, useSelector } from 'react-redux';
+import { saveState } from '../utils/storage.js';
 import {
   setGender,
   setWeight,
@@ -14,7 +15,15 @@ import {
 } from '../reducers/profileSlice';
 import { useNavigate } from 'react-router-dom';
 
+
+
 const ProfileForm = () => {
+  const profileState = useSelector((state) => state.profile);
+
+useEffect(() => {
+  saveState({ profile: profileState }); // Uppdatera localStorage vid profiländringar
+}, [profileState]);
+
   const dispatch = useDispatch();
   const navigate = useNavigate(); 
   const {
