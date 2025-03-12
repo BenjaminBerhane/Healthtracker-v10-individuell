@@ -12,7 +12,7 @@ const CurrentWeight = () => {
         <p className='text-xl w-[150px]'>
           <span className='font-bold text-xl text-primary transition duration-200'>{latestWeight.weight} </span> kg
           <span className='block text-sm text-gray-500'> as of {latestWeight.date}</span>
-          <span className='m-2 hidden group-hover:block text-sm text-primary'> Lägg till ny vikt</span>
+          <span className='m-2 hidden group-hover:block text-sm text-primary font-bold'> Lägg till ny vikt</span>
         </p>
       ) : (
         <p className='text-xl text-gray-500'>No weight data available</p>
