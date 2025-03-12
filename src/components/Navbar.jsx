@@ -24,9 +24,9 @@ function Navbar() {
 
       {/* Desktop-menyn visas alltid på större skärmar */}
       <ul className="hidden md:flex gap-8">
-        <li className="px-4 py-2 hover:bg-accent rounded-md"><NavLink to="/" ><LayoutDashboard className="inline self-center h-full mr-2"/>Dashboard</NavLink></li>
-        <li className="px-4 py-2 hover:bg-accent rounded-md"><NavLink to="/profilecard" ><User className="inline self-center h-full mr-2"/>Profile</NavLink></li>
-        <li className="px-4 py-2 hover:bg-accent rounded-md"><NavLink to="/mealLog" ><Notebook className="inline self-center h-full mr-2"/>Meallog</NavLink></li>
+        <li ><NavLink to="/" className="p-4 hover:bg-accent rounded-md"><LayoutDashboard className="inline self-center h-full mr-2"/>Dashboard</NavLink></li>
+        <li ><NavLink to="/profilecard" className="p-4 hover:bg-accent rounded-md" ><User className="inline self-center h-full mr-2"/>Profile</NavLink></li>
+        <li ><NavLink to="/mealLog" className="p-4 hover:bg-accent rounded-md"><Notebook className="inline self-center h-full mr-2"/>Meallog</NavLink></li>
       </ul>
 
       {/* Dropdown-menyn syns bara i mobilvy när knappen trycks */}
