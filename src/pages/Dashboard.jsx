@@ -8,8 +8,8 @@ const Dashboard = () => {
   const [showAddWeight, setShowAddWeight] = useState(false);
 
   return (
-    <main>
-      <div className="flex flex-wrap items-start max-w-screen">
+    <main className='flex flex-col align-center'>
+      <div className="max-w- [800px] p-4 flex flex-wrap items-start max-w-screen">
         <KcalStatus />
         <TodaysMeals />
         
