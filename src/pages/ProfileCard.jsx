@@ -48,7 +48,7 @@ const ProfileCard = () => {
 
   return (
     <main className="flex flex-col items-center p-4 bg-green-50">
-    <div className="max-w-sm mx-auto bg-white rounded-lg shadow-md p-6 mt-4 fixed-width">
+    <div className="max-w-sm mx-auto bg-white text-black rounded-lg shadow-md p-6 mt-4 fixed-width">
         <h2 className="text-2xl font-bold text-green-600 mb-4">Profilinformation</h2>
         
         <div className="flex justify-center mb-4">
