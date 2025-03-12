@@ -12,19 +12,19 @@
 }
 
 :root {
-  --background: #e0edde;
-  --foreground: oklch(0.145 0 0);
+  --background: #f2f3f2;
+  --foreground: #ebf4ea;
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.145 0 0);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.145 0 0);
-  --primary: #1e7927;
+  --primary: #079137;
   --primary-foreground: oklch(0.985 0 0);
-  --secondary: #747e6a;
+  --secondary: #1d201a;
   --secondary-foreground: oklch(0.205 0 0);
   --muted: oklch(0.97 0 0);
   --muted-foreground: oklch(0.556 0 0);
-  --accent: #573775;
+  --accent: #1a1e44;
   --accent-foreground: oklch(0.205 0 0);
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.577 0.245 27.325);
@@ -48,7 +48,7 @@
 }
 
 .dark {
-  --background: oklch(0.145 0 0);
+  --background: #6a8466;
   --foreground: oklch(0.985 0 0);
   --card: oklch(0.145 0 0);
   --card-foreground: oklch(0.985 0 0);

@@ -1,7 +1,8 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import MealList from '../MealList';
-import {Button} from '../ui/button';
+import { Button } from '../ui/button';
+import { PlusCircle } from 'lucide-react';
 
 const TodaysMeals = () => {
   /* const meals = useSelector((state) => state.meals.list || []); // Ensure meals is always an array */
@@ -18,7 +19,10 @@ const TodaysMeals = () => {
       <h3 className='text-lg font-bold'>Idag </h3>
       <p className='text-sm text-gray-500'>{formattedDate}</p>
       <MealList meals={meals} />
-      <Button onClick={() => { window.location.href = '/mealLog' }}>Lägg till måltid</Button>
+      <Button onClick={() => { window.location.href = '/mealLog' }}>
+        <PlusCircle className="inline-block" />
+        Lägg till måltid
+      </Button>
     </section>
   );
 };

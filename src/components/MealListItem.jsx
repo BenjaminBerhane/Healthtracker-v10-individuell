@@ -1,16 +1,38 @@
-import React from 'react';
+import React, { useState } from 'react';
+import '../pages/MealLog.css';
 
 const MealListItem = ({ meal, onEdit }) => {
+  const [showDetails, setShowDetails] = useState(false);
+
+  const toggleDetails = () => {
+    setShowDetails(!showDetails);
+  };
+
   return (
-    <div className="meal-list-item" onClick={() => onEdit(meal)}>
-      <h3>{meal.title}</h3>
-      <p>Energi: {meal.energy} kcal</p>
-      <p>Datum: {meal.date}</p>
-      <p>Protein: {meal.protein}g</p>
-      <p>Kolhydrat: {meal.carbohydrate}g</p>
-      <p>Fett: {meal.fat}g</p>
-      <p>Kategori: {meal.category}</p>
-      <button onClick={(e) => { e.stopPropagation(); onEdit(meal); }}>Edit</button>
+    <div className="bg-white shadow-md rounded p-4 mb-4 cursor-pointer hover:bg-gray-100">
+      <h3 className="text-xl font-bold mb-2">{meal.title}</h3>
+      <p className="text-gray-700">Energi: {meal.energy} kcal</p>
+      {showDetails && (
+        <>
+          <p className="text-gray-700">Datum: {meal.date}</p>
+          <p className="text-gray-700">Protein: {meal.protein}g</p>
+          <p className="text-gray-700">Kolhydrat: {meal.carbohydrate}g</p>
+          <p className="text-gray-700">Fett: {meal.fat}g</p>
+          <p className="text-gray-700">Kategori: {meal.category}</p>
+        </>
+      )}
+      <button
+        className="mt-2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded focus:outline-none focus:shadow-outline"
+        onClick={toggleDetails}
+      >
+        {showDetails ? 'Visa mindre' : 'Mer info'}
+      </button>
+      <button
+        className="mt-2 bg-green-500 hover:bg-green-700 text-white font-bold py-1 px-2 rounded focus:outline-none focus:shadow-outline ml-2"
+        onClick={(e) => { e.stopPropagation(); onEdit(meal); }}
+      >
+        Edit
+      </button>
     </div>
   );
 };
