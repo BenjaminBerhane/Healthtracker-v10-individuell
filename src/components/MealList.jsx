@@ -6,8 +6,8 @@ const MealList = ({ meals, onEdit }) => {
   const sortedMeals = [...meals].sort((a, b) => new Date(b.date) - new Date(a.date));
 
   return (
-    <div>
-      <h2 className="font-extrabold">Loggade måltider</h2>
+    <div className="card">
+      <h2>Loggade måltider</h2>
       <ul>
         {sortedMeals.map((meal, index) => (
           <li key={index}>
