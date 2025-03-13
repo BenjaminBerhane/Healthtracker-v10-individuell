@@ -97,7 +97,7 @@ const MealLog = () => {
       name="category"
       value={meal.category}
       onChange={handleChange}
-      className="block w-full px-4 py-2 pr-10 text-gray-700 bg-white border border-gray-300 rounded shadow focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 appearance-none"
+      className="block w-full px-4 py-2 pr-10 text-gray-700 bg-white border border-gray-300 rounded shadow focus:outline-none focus:ring-2 focus:ring-accent focus:border-accent appearance-none"
     >
       <option value="">Välj kategori</option>
       <option value="Frukost">Frukost</option>
@@ -119,7 +119,7 @@ const MealLog = () => {
   </div>
 </div>
 
-        <button type="submit" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+        <button type="submit" className="bg-primary hover:bg-primary-hover text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
           {editingMeal ? 'Uppdatera måltid' : 'Logga måltid'}
         </button>
       </form>

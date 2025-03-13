@@ -7,7 +7,7 @@ const CurrentWeight = () => {
   const latestWeight = weightEntries.length > 0 ? weightEntries[weightEntries.length - 1] : null;
 
   return (
-    <section className='card group'>
+    <section className='card group w-full flex items-center'>
       {latestWeight ? (
         <p className='text-xl w-[150px]'>
           <span className='font-bold text-xl text-primary transition duration-200'>{latestWeight.weight} </span> kg

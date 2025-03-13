@@ -26,7 +26,7 @@ const KcalStatus = () => {
   const remainingKcal = tdee - consumedCalories; // Calculate remaining kcal
 
   return (
-    <section className='card'>
+    <section className='card w-full flex items-center'>
       <p className='font-bold text-primary text-2xl'>{Math.round(remainingKcal)}</p>
       <h3>kcal kvar idag</h3>
     </section>

@@ -24,7 +24,7 @@ const AddWeight = ({onSubmit}) => {
   };
 
   return (
-    <div className="max-w-sm mx-auto bg-white rounded-lg shadow-md p-6 mt-4 fixed-width">
+    <div className="max-w-sm bg-white rounded-lg shadow-md p-6 fixed-width">
     <h3 className="text-xl font-bold text-green-600 mb-4">Registrera din nya vikt</h3>
     <input
       type="number"

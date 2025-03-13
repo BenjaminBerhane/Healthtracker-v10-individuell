@@ -9,25 +9,27 @@ const Dashboard = () => {
   const [showAddWeight, setShowAddWeight] = useState(false);
 
   return (
-    <main className='flex flex-col items-center'>
-      <div className="max-w-[800px] p-4 flex flex-wrap items-start">
-        <div className="w-full flex items-start">
-          <WelcomeProfile className="flex-10 w-full"/>
+    <main className='flex justify-center'>
+      <div className='grid grid-cols-2 gap-4 items-start max-w-[800px] p-4'>
+        <div className="col-span-1 m-0">
+          <WelcomeProfile className="w-full"/>
           <KcalStatus />
+          {showAddWeight ? (
+            <AddWeight onSubmit={() => setShowAddWeight(false)} />
+          ) : (
+            <div className="h-fit w-fit cursor-pointer" onClick={() => setShowAddWeight(true)}>
+              <CurrentWeight />
+            </div>
+          )}
         </div>
-        <TodaysMeals />
-        
-        {showAddWeight ? (
-          <AddWeight onSubmit={() => setShowAddWeight(false)} />
-        ) : (
-          <div className="h-fit w-fit cursor-pointer" onClick={() => setShowAddWeight(true)}>
-            <CurrentWeight />
-          </div>
-        )}
-
+        <div className="col-span-1">
+          <TodaysMeals />
+        </div>
       </div>
     </main>
   );
 };
 
 export default Dashboard;
+
+
