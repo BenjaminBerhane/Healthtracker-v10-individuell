@@ -90,20 +90,35 @@ const MealLog = () => {
           <input type="text" name="fat" value={meal.fat} onChange={handleChange} className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
         </div>
         <div className="mb-4">
-          <label className="block text-gray-700 text-sm font-bold mb-2">Kategori:</label>
-          <select
-            id="category"
-            name="category"
-            value={meal.category}
-            onChange={handleChange}
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
-            <option value="">Välj kategori</option>
-            <option value="Frukost">Frukost</option>
-            <option value="Lunch">Lunch</option>
-            <option value="Middag">Middag</option>
-            <option value="Mellanmål">Mellanmål</option>
-          </select>
-        </div>
+  <label className="block text-gray-700 text-sm font-bold mb-2">Kategori:</label>
+  <div className="relative w-full">
+    <select
+      id="category"
+      name="category"
+      value={meal.category}
+      onChange={handleChange}
+      className="block w-full px-4 py-2 pr-10 text-gray-700 bg-white border border-gray-300 rounded shadow focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 appearance-none"
+    >
+      <option value="">Välj kategori</option>
+      <option value="Frukost">Frukost</option>
+      <option value="Lunch">Lunch</option>
+      <option value="Middag">Middag</option>
+      <option value="Mellanmål">Mellanmål</option>
+    </select>
+    <div className="absolute inset-y-0 right-0 flex items-center px-3 pointer-events-none">
+      <svg
+        className="w-4 h-4 text-gray-600"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 9l4-4 4 4m0 6l-4 4-4-4" />
+      </svg>
+    </div>
+  </div>
+</div>
+
         <button type="submit" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
           {editingMeal ? 'Uppdatera måltid' : 'Logga måltid'}
         </button>
