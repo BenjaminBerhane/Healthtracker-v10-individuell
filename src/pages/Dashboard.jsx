@@ -11,8 +11,8 @@ const Dashboard = () => {
   return (
     <main className='flex justify-center'>
       <div className='grid grid-cols-2 gap-4 items-start max-w-[800px] p-4'>
-        <div className="col-span-1 m-0">
-          <WelcomeProfile className="w-full"/>
+        <div className="col-span-1">
+          <WelcomeProfile className=""/>
           <KcalStatus />
           {showAddWeight ? (
             <AddWeight onSubmit={() => setShowAddWeight(false)} />

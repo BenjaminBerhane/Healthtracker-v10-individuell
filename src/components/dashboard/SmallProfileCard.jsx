@@ -48,7 +48,7 @@ const ProfileCard = () => {
   };
 
   return (
-    <div className="group max-w-sm bg-white text-black rounded-lg shadow-md p-6 w-full">
+    <section className="group bg-white text-black rounded-lg shadow-md p-6">
         <h2 className="text-2xl font-bold text-green-600 mb-4">Hej {userName}! </h2>
         
         <div className="flex justify-center mb-4">
@@ -62,7 +62,7 @@ const ProfileCard = () => {
         >
           Ändra Profil
         </button>
-      </div>
+      </section>
   );
 };
 
