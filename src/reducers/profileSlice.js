@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const profileSlice = createSlice({
+const initialState = {
   name: "profile",
   initialState: {
     gender: "",
@@ -12,6 +12,10 @@ const profileSlice = createSlice({
     tdee: 0,
     birthDate: "",
   },
+}
+const profileSlice = createSlice({
+  name: "profile",
+  initialState,
   reducers: {
     addWeight: (state, action) => {
       const newWeight = {
