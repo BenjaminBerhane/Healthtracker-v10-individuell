@@ -39,9 +39,9 @@ const ProfileForm = () => {
     if (goal) dispatch(setGoal(goal));
   }, [dispatch, gender, height, age, activityLevel, goal]);
 
-  useEffect(() => {
+/*   useEffect(() => {
     calculateTDEE(); // Beräkna TDEE när goal ändras
-  }, [goal, weight, activityLevel]); // Lyssna på förändringar i dessa värden
+  }, [goal, weight, activityLevel]); // Lyssna på förändringar i dessa värden */
 
   const calculateTDEE = () => {
     // const currentWeight = parseFloat(latestWeight);
