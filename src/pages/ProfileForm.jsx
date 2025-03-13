@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from "react";
 import WeightList from "../components/WeightList";
 import { useDispatch, useSelector } from "react-redux";
-/* import { saveState } from "../utils/storage.js"; */
 import {
   setGender,
-/*   setWeight, */
   setHeight,
   setAge,
   setActivityLevel,
@@ -17,13 +15,11 @@ import { useNavigate } from "react-router-dom";
 
 const ProfileForm = () => {
   const profileState = useSelector((state) => state.profile);
-
-  // useEffect(() => {
-  //   saveState({ profile: profileState }); // Uppdatera localStorage vid profiländringar
-  // }, [profileState]);
+  const [errorMessage, setErrorMessage] = useState();
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
   const { gender, weight, height, age, activityLevel, goal, tdee, birthDate } =
     useSelector((state) => state.profile);
 
@@ -39,22 +35,17 @@ const ProfileForm = () => {
     if (goal) dispatch(setGoal(goal));
   }, [dispatch, gender, height, age, activityLevel, goal]);
 
-   useEffect(() => {
+  useEffect(() => {
     calculateTDEE(); // Beräkna TDEE när goal ändras
   }, [goal, weight, activityLevel]); // Lyssna på förändringar i dessa värden 
 
   const calculateTDEE = () => {
-    // const currentWeight = parseFloat(latestWeight);
     const currentWeight = parseFloat(latestWeight);
     const numericHeight = parseFloat(height);
     const numericAge = parseInt(age, 10);
     const numericActivityLevel = parseFloat(activityLevel);
     const numericGoal = parseFloat(goal);
 
-    // if (isNaN(currentWeight) || !gender || !height || !activityLevel || !goal) {
-    //   console.error("Missing values for TDEE calculation");
-    //   return;
-    // }
     if (
       isNaN(currentWeight) ||
       !gender ||
@@ -88,6 +79,13 @@ const ProfileForm = () => {
     e.preventDefault();
 
     const newWeightValue = parseFloat(weightInput);
+
+    if (!weightInput || !gender || !height || !activityLevel || !goal) {
+      console.error("Missing values");
+      setErrorMessage("Värden saknas");
+      return;
+    }
+
     const hasWeightChanged = newWeightValue !== latestWeight;
 
     const date = new Date().toISOString().split("T")[0];
@@ -249,6 +247,7 @@ const ProfileForm = () => {
         >
           Spara
         </button>
+        <p>{errorMessage}</p>
 
         {tdee && (
           <h2 className="text-lg text-green-600 mt-4 text-center">
@@ -263,3 +262,4 @@ const ProfileForm = () => {
 };
 
 export default ProfileForm;
+
