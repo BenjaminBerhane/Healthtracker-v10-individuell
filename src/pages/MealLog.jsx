@@ -66,7 +66,7 @@ const MealLog = () => {
       <form onSubmit={handleSubmit} className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 max-w-[500px]">
         {error && <p className="text-red-500 text-xs italic mb-4">{error}</p>}
         <div className="mb-4">
-          <label className="block text-gray-700 text-sm font-bold mb-2">Titel:</label>
+          <label className="block text-gray-700 text-sm font-bold mb-2">Måltid:</label>
           <input type="text" name="title" value={meal.title} onChange={handleChange} className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
         </div>
         <div className="mb-4">
@@ -123,7 +123,6 @@ const MealLog = () => {
           {editingMeal ? 'Uppdatera måltid' : 'Logga måltid'}
         </button>
       </form>
-
       <MealList meals={mealLogs} onEdit={handleEdit} />
     </div>
   );

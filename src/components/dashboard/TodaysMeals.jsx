@@ -4,14 +4,11 @@ import MealListItem from '../MealListItem';
 import { Button } from '../ui/button';
 import { PlusCircle } from 'lucide-react';
 
-const TodaysMeals = () => {
+const TodaysMeals = ({ onEdit }) => {
   const meals = useSelector((state) => state.meals.mealLogs || []); // Ensure meals is always an array
 
   const todaysDate = new Date();
   const formattedDate = todaysDate.toISOString().split('T')[0];
-
-  console.log("Todays date", formattedDate)
-  console.log("Meal Logs from Redux:", meals);
 
   const todaysMeals = meals.filter((meal) => meal.date === formattedDate);
 
@@ -25,7 +22,7 @@ const TodaysMeals = () => {
       {todaysMeals.length !== 0 && (
         <div>
           {todaysMeals.map((meal) => (
-            <MealListItem key={meal.id} meal={meal} onEdit={() => console.log("Edit meal", meal)} />
+            <MealListItem key={meal.id} meal={meal} onEdit={onEdit}/>
           ))}
         </div>
       )}
@@ -39,6 +36,4 @@ const TodaysMeals = () => {
 };
 
 export default TodaysMeals;
-
-
 
