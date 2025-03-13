@@ -62,7 +62,7 @@ const MealLog = () => {
   };
 
   return (
-    <div className="container mx-auto p-4">
+    <div className="container mx-auto p-4 max-w-120">
       <form onSubmit={handleSubmit} className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
         {error && <p className="text-red-500 text-xs italic mb-4">{error}</p>}
         <div className="mb-4">
@@ -91,7 +91,17 @@ const MealLog = () => {
         </div>
         <div className="mb-4">
           <label className="block text-gray-700 text-sm font-bold mb-2">Kategori:</label>
-          <input type="text" name="category" value={meal.category} onChange={handleChange} className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
+          <select
+            id="category"
+            value={meal.category}
+            onChange={handleChange}
+            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+            <option value="">Välj kategori</option>
+            <option value="Frukost">Frukost</option>
+            <option value="Lunch">Lunch</option>
+            <option value="Middag">Middag</option>
+            <option value="Mellanmål">Mellanmål</option>
+          </select>
         </div>
         <button type="submit" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
           {editingMeal ? 'Uppdatera måltid' : 'Logga måltid'}

@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 import WeightList from "../components/WeightList";
 import { useDispatch, useSelector } from "react-redux";
+import { useCallback } from "react";
 // import { saveState } from "../utils/storage.js";
 import {
   setGender,
-  setWeight,
+  // setWeight,
   setHeight,
   setAge,
   setActivityLevel,
@@ -39,46 +40,34 @@ const ProfileForm = () => {
     if (goal) dispatch(setGoal(goal));
   }, [dispatch, gender, height, age, activityLevel, goal]);
 
-   useEffect(() => {
-    calculateTDEE(); // Beräkna TDEE när goal ändras
-  }, [goal, weight, activityLevel]); // Lyssna på förändringar i dessa värden 
-
-  const calculateTDEE = () => {
-    // const currentWeight = parseFloat(latestWeight);
+  const calculateTDEE = useCallback(() => {
     const currentWeight = parseFloat(latestWeight);
-    const numericHeight = parseFloat(height);
-    const numericAge = parseInt(age, 10);
-    const numericActivityLevel = parseFloat(activityLevel);
-    const numericGoal = parseFloat(goal);
-
-    // if (isNaN(currentWeight) || !gender || !height || !activityLevel || !goal) {
-    //   console.error("Missing values for TDEE calculation");
-    //   return;
-    // }
     if (
       isNaN(currentWeight) ||
       !gender ||
-      isNaN(numericHeight) ||
-      isNaN(numericActivityLevel) ||
-      isNaN(numericGoal) ||
-      isNaN(numericAge)
+      isNaN(parseFloat(height)) ||
+      isNaN(parseFloat(activityLevel)) ||
+      isNaN(parseFloat(goal)) ||
+      isNaN(parseInt(age, 10))
     ) {
       console.error("Missing values for TDEE calculation");
       return;
     }
-
+  
     let bmr;
     if (gender === "male") {
-      bmr =
-        88.36 + 13.4 * currentWeight + 4.8 * numericHeight - 5.7 * numericAge;
+      bmr = 88.36 + 13.4 * currentWeight + 4.8 * parseFloat(height) - 5.7 * parseInt(age, 10);
     } else if (gender === "female") {
-      bmr =
-        447.6 + 9.2 * currentWeight + 3.1 * numericHeight - 4.3 * numericAge;
+      bmr = 447.6 + 9.2 * currentWeight + 3.1 * parseFloat(height) - 4.3 * parseInt(age, 10);
     }
-
-    const totalEnergyExpenditure = bmr * numericActivityLevel + numericGoal;
-    dispatch(setTDEE(totalEnergyExpenditure));
-  };
+  
+    dispatch(setTDEE(bmr * parseFloat(activityLevel) + parseFloat(goal)));
+  }, [gender, latestWeight, height, age, activityLevel, goal, dispatch]);
+  
+  useEffect(() => {
+    calculateTDEE();
+  }, [calculateTDEE]);
+  
 
   const handleWeightChange = (e) => {
     setWeightInput(e.target.value);
