@@ -3,6 +3,7 @@ import MealList from '../components/MealList';
 import { useSelector, useDispatch } from "react-redux";
 import { addMeal, updateMeal } from "../reducers/mealSlice";
 import { v4 as uuidv4 } from "uuid";
+import mealData from '../utils/mockData'; // Importera mockdatan
 
 const MealLog = () => {
 
@@ -65,7 +66,7 @@ const MealLog = () => {
   return (
     <div className="container mx-auto p-4 flex flex-col items-center">
       <div className="w-full max-w-4xl">
-        <MealList meals={mealLogs} onEdit={handleEdit} />
+        <MealList meals={mealData} onEdit={handleEdit} /> {/* Använd mockdatan här */}
       </div>
       <button 
         onClick={() => setShowForm(!showForm)} 

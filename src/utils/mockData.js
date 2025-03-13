@@ -1,6 +1,6 @@
 const mealData = [
     {
-        "name": "Bacon & Eggs",
+        "title": "Bacon & Eggs",
         "mealType": "Breakfast",
         "id": 1,
         "date": "2025-03-20",
@@ -9,7 +9,8 @@ const mealData = [
         "fat": 18,
         "carbs": 10,
     },
-    {   "name": "Pasta with Meatballs",
+    {   
+        "title": "Pasta with Meatballs",
         "mealType": "Lunch",
         "id": 2,
         "date": "2025-03-20",
@@ -19,7 +20,7 @@ const mealData = [
         "carbs": 30,
     },
     {
-        "name": "Thai Curry & Rice",
+        "title": "Thai Curry & Rice",
         "mealType": "Dinner",
         "id": 3,
         "date": "2025-03-20",
@@ -29,7 +30,7 @@ const mealData = [
         "carbs": 40,
     },
     {
-        "name": "Cashews",
+        "title": "Cashews",
         "mealType": "Snack",
         "id": 4,
         "date": "2025-03-20",
@@ -39,7 +40,7 @@ const mealData = [
         "carbs": 15,
     },
     {
-        "name": "Oatmeal",
+        "title": "Oatmeal",
         "mealType": "Breakfast",
         "id": 5,
         "date": "2025-03-21",
@@ -48,7 +49,8 @@ const mealData = [
         "fat": 5,
         "carbs": 25,
     },
-    {   "name": "Taco Pie",
+    {   
+        "title": "Taco Pie",
         "mealType": "Lunch",
         "id": 6,
         "date": "2025-03-21",
@@ -58,7 +60,7 @@ const mealData = [
         "carbs": 35,
     },
     {
-        "name": "Pizza with Pineapple",
+        "title": "Pizza with Pineapple",
         "mealType": "Dinner",
         "id": 7,
         "date": "2025-03-21",
@@ -68,7 +70,7 @@ const mealData = [
         "carbs": 40,
     },
     {
-        "name": "Cookies & Milk",
+        "title": "Cookies & Milk",
         "mealType": "Snack",
         "id": 8,
         "date": "2025-03-21",
@@ -78,7 +80,7 @@ const mealData = [
         "carbs": 15,
     },
     {
-        "name": "Banana",
+        "title": "Banana",
         "mealType": "Snack",
         "id": 8,
         "date": "2025-03-21",
@@ -88,7 +90,7 @@ const mealData = [
         "carbs": 10,
     },
     {
-        "name": "Oatmeal & Protein Pudding",
+        "title": "Oatmeal & Protein Pudding",
         "mealType": "Breakfast",
         "id": 5,
         "date": "2025-03-21",
@@ -99,4 +101,4 @@ const mealData = [
     },
 ]
 
-export default mealData
+export default mealData;
