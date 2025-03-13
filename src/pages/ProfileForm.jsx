@@ -43,7 +43,7 @@ const ProfileForm = () => {
   const calculateTDEE = useCallback(() => {
     const currentWeight = parseFloat(latestWeight);
 
-    if (
+ /*    if (
       currentWeight === 0 ||
       gender === "" ||
       height === 0 ||
@@ -53,7 +53,7 @@ const ProfileForm = () => {
     ) {
       console.warn("Skipping TDEE calculation due to missing values");
       return; // Prevents the function from running with empty data
-    }
+    } */
 
     if (
       isNaN(currentWeight) ||
