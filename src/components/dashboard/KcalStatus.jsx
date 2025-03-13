@@ -18,7 +18,8 @@ const KcalStatus = () => {
   // Calculate total consumed calories for today
   const consumedCalories = todaysMeals.reduce((total, meal) => {
     console.log(`Meal: ${meal.name}, Calories: ${meal.energy}`);
-    return total + (meal.energy || 0);
+    console.log("total:", total)
+    return Number(total) + Number((meal.energy || 0));
   }, 0);
 
   console.log("Total Consumed Calories Today:", consumedCalories);

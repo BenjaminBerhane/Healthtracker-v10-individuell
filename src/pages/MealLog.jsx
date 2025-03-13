@@ -62,8 +62,8 @@ const MealLog = () => {
   };
 
   return (
-    <div className="container mx-auto p-4">
-      <form onSubmit={handleSubmit} className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+    <div className="container mx-auto p-4 flex justify-center flex-row gap-4 items-start flex-wrap">
+      <form onSubmit={handleSubmit} className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 max-w-[500px]">
         {error && <p className="text-red-500 text-xs italic mb-4">{error}</p>}
         <div className="mb-4">
           <label className="block text-gray-700 text-sm font-bold mb-2">Titel:</label>
@@ -71,7 +71,7 @@ const MealLog = () => {
         </div>
         <div className="mb-4">
           <label className="block text-gray-700 text-sm font-bold mb-2">Energi:</label>
-          <input type="text" name="energy" value={meal.energy} onChange={handleChange} className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
+          <input type="text" name="energy" value={Number(meal.energy)} onChange={handleChange} className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
         </div>
         <div className="mb-4">
           <label className="block text-gray-700 text-sm font-bold mb-2">Datum:</label>

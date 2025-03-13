@@ -80,7 +80,7 @@ const ProfileForm = () => {
 
     const newWeightValue = parseFloat(weightInput);
 
-    if (!weightInput || !gender || !height || !activityLevel || !goal) {
+    if (!weightInput || !gender || !height || !birthDate ) {
       console.error("Missing values");
       setErrorMessage("Alla fällt måste fyllas i");
       return;
@@ -210,7 +210,7 @@ const ProfileForm = () => {
           onChange={(e) =>
             dispatch(setActivityLevel(parseFloat(e.target.value)))
           }
-          className="block w-full border rounded p-2 mb-4"
+          className={`block w-full border rounded p-2 mb-4 ${activityLevel ? "" : "border-accent border-2"}`}
         >
           <option value={1.2}>Stillasittande (lite eller ingen träning)</option>
           <option value={1.375}>
@@ -234,7 +234,7 @@ const ProfileForm = () => {
           id="goal"
           value={goal}
           onChange={(e) => dispatch(setGoal(parseFloat(e.target.value)))}
-          className="block w-full border rounded p-2 mb-4"
+          className={`block w-full border rounded p-2 mb-4 `}
         >
           <option value="-500">Gå ner i vikt</option>
           <option value="0">Hålla vikten</option>
