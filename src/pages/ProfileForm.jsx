@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import WeightList from "../components/WeightList";
 import { useDispatch, useSelector } from "react-redux";
+import { useCallback } from "react";
 // import { saveState } from "../utils/storage.js";
 import {
   setGender,
@@ -43,18 +44,13 @@ const ProfileForm = () => {
     calculateTDEE(); // Beräkna TDEE när goal ändras
   }, [goal, weight, activityLevel]); // Lyssna på förändringar i dessa värden 
 
-  const calculateTDEE = () => {
-    // const currentWeight = parseFloat(latestWeight);
+  const calculateTDEE = useCallback(() => {
     const currentWeight = parseFloat(latestWeight);
     const numericHeight = parseFloat(height);
     const numericAge = parseInt(age, 10);
     const numericActivityLevel = parseFloat(activityLevel);
     const numericGoal = parseFloat(goal);
-
-    // if (isNaN(currentWeight) || !gender || !height || !activityLevel || !goal) {
-    //   console.error("Missing values for TDEE calculation");
-    //   return;
-    // }
+  
     if (
       isNaN(currentWeight) ||
       !gender ||
@@ -66,19 +62,22 @@ const ProfileForm = () => {
       console.error("Missing values for TDEE calculation");
       return;
     }
-
+  
     let bmr;
     if (gender === "male") {
-      bmr =
-        88.36 + 13.4 * currentWeight + 4.8 * numericHeight - 5.7 * numericAge;
+      bmr = 88.36 + 13.4 * currentWeight + 4.8 * numericHeight - 5.7 * numericAge;
     } else if (gender === "female") {
-      bmr =
-        447.6 + 9.2 * currentWeight + 3.1 * numericHeight - 4.3 * numericAge;
+      bmr = 447.6 + 9.2 * currentWeight + 3.1 * numericHeight - 4.3 * numericAge;
     }
-
+  
     const totalEnergyExpenditure = bmr * numericActivityLevel + numericGoal;
     dispatch(setTDEE(totalEnergyExpenditure));
-  };
+  }, [latestWeight, gender, height, age, activityLevel, goal, dispatch]);
+  
+  // Now use the function inside useEffect
+  useEffect(() => {
+    calculateTDEE();
+  }, [goal, weight, activityLevel, calculateTDEE]); // ✅ Now it's stable
 
   const handleWeightChange = (e) => {
     setWeightInput(e.target.value);
