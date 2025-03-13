@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import WeightList from "../components/WeightList";
 import { useDispatch, useSelector } from "react-redux";
-import { saveState } from "../utils/storage.js";
+/* import { saveState } from "../utils/storage.js"; */
 import {
   setGender,
-  setWeight,
+/*   setWeight, */
   setHeight,
   setAge,
   setActivityLevel,
