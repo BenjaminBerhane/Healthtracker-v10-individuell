@@ -3,6 +3,7 @@ import CurrentWeight from '../components/dashboard/CurrentWeight';
 import AddWeight from '../components/AddWeight';
 import TodaysMeals from '../components/dashboard/TodaysMeals';
 import KcalStatus from '../components/dashboard/KcalStatus';
+import WelcomeProfile from '@/components/dashboard/WelcomeProfile';
 
 const Dashboard = () => {
   const [showAddWeight, setShowAddWeight] = useState(false);
@@ -10,7 +11,10 @@ const Dashboard = () => {
   return (
     <main className='flex flex-col items-center'>
       <div className="max-w-[800px] p-4 flex flex-wrap items-start">
-        <KcalStatus />
+        <div className="w-full flex items-start">
+          <WelcomeProfile className="flex-10 w-full"/>
+          <KcalStatus />
+        </div>
         <TodaysMeals />
         
         {showAddWeight ? (
