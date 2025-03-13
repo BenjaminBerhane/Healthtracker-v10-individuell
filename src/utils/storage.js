@@ -5,7 +5,7 @@ export const loadState = () => {
     const mealLogs = JSON.parse(localStorage.getItem("mealLogs")) || [];
     const profile = JSON.parse(localStorage.getItem("profile")) || {
       gender: "",
-      weight: [{ id: 1, weight: 0, date: "åååå-mm-dd" }],
+      weight: [/* { id: 1, weight: 0, date: "åååå-mm-dd" } */],
       height: 0,
       age: 0,
       activityLevel: 1.2,
