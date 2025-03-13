@@ -4,13 +4,13 @@ const profileSlice = createSlice({
   name: "profile",
   initialState: {
     gender: "",
-    weight: [{ id: 0, weight: 0, date: "" }],
+    weight: [{ id: 1, weight: 0, date: "åååå-mm-dd" }],
     height: 0,
     age: 0,
     activityLevel: 1.2,
     goal: 0,
     tdee: 0,
-    birthDate: "åååå-mm-dd",
+    birthDate: "",
   },
   reducers: {
     addWeight: (state, action) => {

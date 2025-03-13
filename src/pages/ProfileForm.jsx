@@ -42,6 +42,19 @@ const ProfileForm = () => {
 
   const calculateTDEE = useCallback(() => {
     const currentWeight = parseFloat(latestWeight);
+
+    if (
+      currentWeight === 0 ||
+      gender === "" ||
+      height === 0 ||
+      activityLevel === 0 ||
+      goal === 0 ||
+      age === 0
+    ) {
+      console.warn("Skipping TDEE calculation due to missing values");
+      return; // Prevents the function from running with empty data
+    }
+
     if (
       isNaN(currentWeight) ||
       !gender ||
@@ -54,14 +67,6 @@ const ProfileForm = () => {
       return;
     }
 
-    console.log("Debug TDEE:", {
-      currentWeight,
-      gender,
-      height: parseFloat(height),
-      activityLevel: parseFloat(activityLevel),
-      goal: parseFloat(goal),
-      age: parseInt(age, 10),
-    });
   
     let bmr;
     if (gender === "male") {
