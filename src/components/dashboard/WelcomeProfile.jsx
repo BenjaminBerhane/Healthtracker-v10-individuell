@@ -1,8 +1,12 @@
+import SmallProfileCard from './SmallProfileCard'
 import React from 'react'
 
 const WelcomeProfile = () => {
   return (
-    <div>WelcomeProfile</div>
+    
+    <>
+        <SmallProfileCard/>
+    </>
   )
 }
 

@@ -11,8 +11,10 @@ const Dashboard = () => {
   return (
     <main className='flex flex-col items-center'>
       <div className="max-w-[800px] p-4 flex flex-wrap items-start">
-        <WelcomeProfile/>
-        <KcalStatus />
+        <div className="w-full flex items-start">
+          <WelcomeProfile className="flex-10 w-full"/>
+          <KcalStatus />
+        </div>
         <TodaysMeals />
         
         {showAddWeight ? (
