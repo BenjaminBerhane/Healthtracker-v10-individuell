@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import WeightList from "../components/WeightList";
 import { useDispatch, useSelector } from "react-redux";
-import { saveState } from "../utils/storage.js";
+// import { saveState } from "../utils/storage.js";
 import {
   setGender,
   setWeight,
@@ -16,7 +16,7 @@ import {
 import { useNavigate } from "react-router-dom";
 
 const ProfileForm = () => {
-  const profileState = useSelector((state) => state.profile);
+  // const profileState = useSelector((state) => state.profile);
 
   // useEffect(() => {
   //   saveState({ profile: profileState }); // Uppdatera localStorage vid profiländringar
@@ -39,9 +39,9 @@ const ProfileForm = () => {
     if (goal) dispatch(setGoal(goal));
   }, [dispatch, gender, height, age, activityLevel, goal]);
 
-/*   useEffect(() => {
+   useEffect(() => {
     calculateTDEE(); // Beräkna TDEE när goal ändras
-  }, [goal, weight, activityLevel]); // Lyssna på förändringar i dessa värden */
+  }, [goal, weight, activityLevel]); // Lyssna på förändringar i dessa värden 
 
   const calculateTDEE = () => {
     // const currentWeight = parseFloat(latestWeight);
