@@ -6,9 +6,9 @@ export const loadState = () => {
     const profile = JSON.parse(localStorage.getItem("profile")) || {
       gender: "",
       weight: [{ id: 1, weight: 0, date: "åååå-mm-dd" }],
-      height: 188,
+      height: 0,
       age: 0,
-      activityLevel: 0,
+      activityLevel: 1.2,
       goal: 0,
       tdee: 0,
       birthDate: "",
@@ -35,7 +35,10 @@ export const loadState = () => {
 
 export const saveState = (state) => {
   try {
-    localStorage.setItem("mealLogs", JSON.stringify(state.meals.mealLogs));
+    localStorage.setItem(
+      "mealLogs",
+      JSON.stringify(state.meals?.mealLogs || [])
+    );
     localStorage.setItem("profile", JSON.stringify(state.profile));
   } catch (err) {
     console.error("Error saving state:", err);
