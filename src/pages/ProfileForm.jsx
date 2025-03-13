@@ -82,7 +82,7 @@ const ProfileForm = () => {
 
     if (!weightInput || !gender || !height || !activityLevel || !goal) {
       console.error("Missing values");
-      setErrorMessage("Värden saknas");
+      setErrorMessage("Alla fällt måste fyllas i");
       return;
     }
 
@@ -168,10 +168,10 @@ const ProfileForm = () => {
           type="number"
           id="weight"
           name="weight"
-          value={weightInput}
+          value={weightInput || ""}
           onChange={handleWeightChange}
           required
-          className="block w-full border rounded p-2 mb-4"
+          className={`block w-full border rounded p-2 mb-4 ${weightInput ? "" : "border-accent border-2"}`}
         />
 
         <label htmlFor="height" className="label-custom">
@@ -184,7 +184,7 @@ const ProfileForm = () => {
           value={height || ""}
           onChange={(e) => dispatch(setHeight(e.target.value))}
           required
-          className="block w-full border rounded p-2 mb-4"
+          className={`block w-full border rounded p-2 mb-4 ${height ? "" : "border-accent border-2"}`}
         />
 
         <label htmlFor="birthdate" className="label-custom">
@@ -197,7 +197,7 @@ const ProfileForm = () => {
           value={birthDate || ""}
           onChange={handleBirthDateChange}
           required
-          className="block w-full border rounded p-2 mb-4"
+          className={`block w-full border rounded p-2 mb-4 ${birthDate ? "" : "border-accent border-2"}`}
         />
 
         <label htmlFor="activity-level" className="label-custom">
@@ -206,6 +206,7 @@ const ProfileForm = () => {
         <select
           id="activity-level"
           value={activityLevel}
+          required
           onChange={(e) =>
             dispatch(setActivityLevel(parseFloat(e.target.value)))
           }
@@ -247,9 +248,13 @@ const ProfileForm = () => {
         >
           Spara
         </button>
-        <p>{errorMessage}</p>
+        <p
+          className={`p-2 rounded m-2 ${errorMessage ? "border-2 border-accent" : ""}`}
+        >
+          {errorMessage}
+        </p>
 
-        {tdee && (
+        {tdee !==0 && (
           <h2 className="text-lg text-green-600 mt-4 text-center">
             Ditt totala dagliga energibehov: <br />
             <span className="font-bold">{Math.round(tdee)} kcal</span>
@@ -262,4 +267,5 @@ const ProfileForm = () => {
 };
 
 export default ProfileForm;
+
 

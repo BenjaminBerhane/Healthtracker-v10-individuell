@@ -33,10 +33,10 @@ const AddWeight = ({onSubmit}) => {
       placeholder="Ny vikt (kg)"
       className="block w-full border rounded p-2 mb-4"
     />
-    <button onClick={handleAddWeight} className="w-full bg-primary text-white rounded py-2 hover:bg-green-700 transition duration-200">Registrera vikt</button>
+    <button onClick={handleAddWeight} className="w-full bg-primary text-white rounded py-2 hover:cursor-pointer hover:bg-green-700 transition duration-200">Registrera vikt</button>
     <button 
         onClick={onSubmit} 
-        className="w-full mt-2 bg-secondary text-white rounded py-2 hover:bg-gray-600 transition duration-200"
+        className="w-full mt-2 bg-gray-600 text-white rounded py-2 hover:bg-gray-700 hover:cursor-pointer transition duration-200"
       >
         Avbryt
       </button>
