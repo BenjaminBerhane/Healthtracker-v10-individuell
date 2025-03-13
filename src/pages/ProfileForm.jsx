@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import WeightList from "../components/WeightList";
 import { useDispatch, useSelector } from "react-redux";
 import { useCallback } from "react";
-// import { saveState } from "../utils/storage.js";
+/* import { saveState } from "../utils/storage.js"; */
 import {
   setGender,
   // setWeight,
@@ -53,6 +53,15 @@ const ProfileForm = () => {
       console.error("Missing values for TDEE calculation");
       return;
     }
+
+    console.log("Debug TDEE:", {
+      currentWeight,
+      gender,
+      height: parseFloat(height),
+      activityLevel: parseFloat(activityLevel),
+      goal: parseFloat(goal),
+      age: parseInt(age, 10),
+    });
   
     let bmr;
     if (gender === "male") {
