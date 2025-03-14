@@ -26,7 +26,7 @@ const router = createBrowserRouter([
       {
         path: "profileform",
         element: (
-          <Suspense fallback={<div>Loading...</div>}>
+          <Suspense fallback={<div className="p-4 text-2xl text-accent h-screen">Loading...</div>}>
             <ProfileForm />
           </Suspense>
         ),
@@ -34,7 +34,7 @@ const router = createBrowserRouter([
       {
         path: "profilecard",
         element: (
-          <Suspense fallback={<div>Loading...</div>}>
+          <Suspense fallback={<div className="p-4 text-2xl text-accent h-screen">Loading...</div>}>
             <ProfileCard />
           </Suspense>
         ),
