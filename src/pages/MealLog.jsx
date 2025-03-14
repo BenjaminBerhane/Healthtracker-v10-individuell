@@ -90,7 +90,7 @@ const MealLog = () => {
           <label htmlFor="fat" className="block text-accent text-sm font-bold mb-2">Fett:</label>
           <input type="text" id="fat" name="fat" value={meal.fat} onChange={handleChange} className="shadow appearance-none border rounded w-full py-2 px-3 text-accent leading-tight focus:outline-none focus:shadow-outline" />
         </div>
-        <div className="w-fit">
+        <div className="w-full">
           <label htmlFor="category" className="block text-accent text-sm font-bold mb-2">Kategori:</label>
           <div className="relative w-full">
             <select
