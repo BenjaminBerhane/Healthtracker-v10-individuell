@@ -18,19 +18,20 @@ const TodaysMeals = ( ) => {
       <p className='text-sm text-gray-500'>{formattedDate}</p>
       {todaysMeals.length === 0 && <p className='text-sm text-gray-500 card'>Inga måltider registrerade idag.</p>}
 
+      <Button onClick={() => { window.location.href = '/mealLog' }}>
+        <PlusCircle className="inline-block" />
+        Lägg till måltid
+      </Button>
+      
       {/* ✅ Corrected: Map over meals and render MealListItem for each */}
       {todaysMeals.length !== 0 && (
-        <div>
+        <div className='flex flex-col-reverse gap-2'>
           {todaysMeals.map((meal) => (
             <MealListItem key={meal.id} meal={meal} />
           ))}
         </div>
       )}
 
-      <Button onClick={() => { window.location.href = '/mealLog' }}>
-        <PlusCircle className="inline-block" />
-        Lägg till måltid
-      </Button>
     </section>
   );
 };

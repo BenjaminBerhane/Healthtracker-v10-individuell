@@ -26,15 +26,16 @@ const Dashboard = () => {
               <CurrentWeight />
             </div>
           )}
+
+        <section className="card">
+          <EnergyPieChart energyData={energyData} />
+        </section>
         </div>
 
         {/* Right Column (on larger screens), but moves under on smaller screens */}
         <div className="md:col-span-1">
           <TodaysMeals />
         </div>
-        <section className="card">
-          <EnergyPieChart energyData={energyData} />
-        </section>
       </div>
     </main>
   );
