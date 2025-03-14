@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Button } from './ui/button';
 
 const MealListItem = ({ meal, onEdit = () => {}, editButton = null }) => {
   const [showDetails, setShowDetails] = useState(false);
@@ -30,11 +31,11 @@ const MealListItem = ({ meal, onEdit = () => {}, editButton = null }) => {
         </div>
       )}
       { editButton &&
-      <button
-        className="mt-2 bg-green-500 hover:bg-green-700 text-white font-bold py-1 px-2 rounded focus:outline-none focus:shadow-outline ml-2"
+      <Button
+        className=""
         onClick={(e) => { e.stopPropagation(); onEdit(meal); }}>
         Edit
-      </button>
+      </Button>
       }
     </details>
   );
