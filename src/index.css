@@ -140,5 +140,5 @@
 
 /* styles.css */
 .label-custom {
-  @apply block mb-2 font-bold text-left; /* Använd Tailwind's @apply för att kombinera klasser */
+  @apply block mb-2 font-bold text-left text-accent; /* Använd Tailwind's @apply för att kombinera klasser */
 }

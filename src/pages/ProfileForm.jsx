@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import WeightList from "../components/WeightList";
 import { useDispatch, useSelector } from "react-redux";
+import { Button } from "@/components/ui/button";
 import {
   setGender,
   setHeight,
@@ -127,7 +128,8 @@ const ProfileForm = () => {
         <div className="mb-4">
           <fieldset className="flex flex-col">
             <legend className="label-custom">
-              Kön: (viktig för uträkning av kallorier)
+              Kön <span className="font-normal">(viktig för uträkning av kalorier)</span>
+              :
             </legend>
             <div className="flex">
               <label className="block m-4">
@@ -240,13 +242,12 @@ const ProfileForm = () => {
           <option value="500">Gå upp i vikt</option>
         </select>
 
-        <button
-          type="button"
+        <Button
           onClick={handleSave}
-          className="w-full bg-green-600 text-white rounded py-2 hover:bg-green-700"
+          className="w-full"
         >
           Spara
-        </button>
+        </Button>
         <p
           className={`p-2 rounded m-2 ${errorMessage ? "border-2 border-accent" : ""}`}
         >
