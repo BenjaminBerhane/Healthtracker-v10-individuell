@@ -17,8 +17,12 @@ const mealSlice = createSlice({
         state.mealLogs[index] = action.payload;
       }
     },
+    getMealsByDate: (state, action) => {
+      return state.mealLogs.filter(m => m.date === action.payload.date);
+    }
   },
 });
 
-export const { addMeal, updateMeal } = mealSlice.actions;
+export const { addMeal, updateMeal, getMealsByDate } = mealSlice.actions;
 export default mealSlice.reducer;
+

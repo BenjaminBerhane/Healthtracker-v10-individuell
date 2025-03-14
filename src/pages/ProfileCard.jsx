@@ -47,7 +47,7 @@ const ProfileCard = () => {
   };
 
   return (
-    <main className="flex flex-col items-center p-4 bg-green-50">
+    <main className="flex flex-col items-center gap-2 p-4 bg-green-50">
     <div className="max-w-sm mx-auto bg-white text-black rounded-lg shadow-md p-6 mt-4 fixed-width">
         <h2 className="text-2xl font-bold text-green-600 mb-4">Profilinformation</h2>
         
@@ -64,7 +64,7 @@ const ProfileCard = () => {
 
         <button
           onClick={handleClick}
-          className="w-full bg-green-600 text-white rounded py-2 hover:bg-green-700 transition duration-200"
+          className="w-full bg-green-600 text-white rounded py-2 hover:bg-green-700 hover:cursor-pointer transition duration-200"
         >
           Ändra Profil
         </button>

@@ -9,21 +9,26 @@ const Dashboard = () => {
   const [showAddWeight, setShowAddWeight] = useState(false);
 
   return (
-    <main className='flex flex-col items-center'>
-      <div className="max-w-[800px] p-4 flex flex-wrap items-start">
-        <div className="w-full flex items-start">
-          <WelcomeProfile className="flex-10 w-full"/>
+    <main className='flex justify-center items-start'>
+      <div className='grid grid-cols-1 md:grid-cols-2 gap-4 items-start max-w-[800px] p-4'>
+
+        {/* Left Column: Stacked vertically */}
+        <div className="flex flex-col gap-4">
+          <WelcomeProfile />
           <KcalStatus />
+          {showAddWeight ? (
+            <AddWeight onSubmit={() => setShowAddWeight(false)} />
+          ) : (
+            <div className="m-0 cursor-pointer w-fit h-fit" onClick={() => setShowAddWeight(true)}>
+              <CurrentWeight />
+            </div>
+          )}
         </div>
-        <TodaysMeals />
-        
-        {showAddWeight ? (
-          <AddWeight onSubmit={() => setShowAddWeight(false)} />
-        ) : (
-          <div className="h-fit w-fit cursor-pointer" onClick={() => setShowAddWeight(true)}>
-            <CurrentWeight />
-          </div>
-        )}
+
+        {/* Right Column (on larger screens), but moves under on smaller screens */}
+        <div className="md:col-span-1">
+          <TodaysMeals />
+        </div>
 
       </div>
     </main>

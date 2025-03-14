@@ -19,6 +19,7 @@
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.145 0 0);
   --primary: #079137;
+  --primary-hover: #03531f;
   --primary-foreground: #ffffff;
   --secondary: #ececec;
   --secondary-foreground: #000000;
@@ -90,6 +91,7 @@
   --color-popover: var(--popover);
   --color-popover-foreground: var(--popover-foreground);
   --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
   --color-primary-foreground: var(--primary-foreground);
   --color-secondary: var(--secondary);
   --color-secondary-foreground: var(--secondary-foreground);
@@ -132,7 +134,7 @@
     @apply p-4 min-h-screen;
   }
   .card {
-    @apply bg-card flex flex-col gap-2 text-card-foreground w-fit rounded-md m-1 h-fit drop-shadow-[1px_1px_4px_rgba(0,0,0,0.1)];
+    @apply bg-card flex flex-col gap-2 text-card-foreground w-fit rounded-md h-fit drop-shadow-[1px_1px_4px_rgba(0,0,0,0.1)];
   }
 }
 

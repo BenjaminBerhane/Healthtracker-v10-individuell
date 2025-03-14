@@ -17,6 +17,7 @@ export default {
           ring: "#3b82f6",
           background: "#ffffff",
           input: "#e5e7eb",
+          primaryHover:"#023915",
         },
       },
     },

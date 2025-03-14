@@ -64,52 +64,69 @@ const MealLog = () => {
   };
 
   return (
-    <div className="container mx-auto p-4 flex flex-col items-center">
-      <button 
-        onClick={() => setShowForm(!showForm)} 
-        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline mb-4"
+    <div className="container mx-auto p-4 flex justify-center flex-row gap-4 items-start flex-wrap">
+      <form onSubmit={handleSubmit} className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 max-w-[500px]">
+        {error && <p className="text-red-500 text-xs italic mb-4">{error}</p>}
+        <div className="mb-4">
+          <label className="block text-gray-700 text-sm font-bold mb-2">Titel:</label>
+          <input type="text" name="title" value={meal.title} onChange={handleChange} className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
+        </div>
+        <div className="mb-4">
+          <label className="block text-gray-700 text-sm font-bold mb-2">Energi:</label>
+          <input type="text" name="energy" value={Number(meal.energy)} onChange={handleChange} className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
+        </div>
+        <div className="mb-4">
+          <label className="block text-gray-700 text-sm font-bold mb-2">Datum:</label>
+          <input type="text" name="date" value={meal.date} onChange={handleChange} className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
+        </div>
+        <div className="mb-4">
+          <label className="block text-gray-700 text-sm font-bold mb-2">Protein:</label>
+          <input type="text" name="protein" value={meal.protein} onChange={handleChange} className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
+        </div>
+        <div className="mb-4">
+          <label className="block text-gray-700 text-sm font-bold mb-2">Kolhydrat:</label>
+          <input type="text" name="carbohydrate" value={meal.carbohydrate} onChange={handleChange} className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
+        </div>
+        <div className="mb-4">
+          <label className="block text-gray-700 text-sm font-bold mb-2">Fett:</label>
+          <input type="text" name="fat" value={meal.fat} onChange={handleChange} className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
+        </div>
+        <div className="mb-4">
+  <label className="block text-gray-700 text-sm font-bold mb-2">Kategori:</label>
+  <div className="relative w-full">
+    <select
+      id="category"
+      name="category"
+      value={meal.category}
+      onChange={handleChange}
+      className="block w-full px-4 py-2 pr-10 text-gray-700 bg-white border border-gray-300 rounded shadow focus:outline-none focus:ring-2 focus:ring-accent focus:border-accent appearance-none"
+    >
+      <option value="">Välj kategori</option>
+      <option value="Frukost">Frukost</option>
+      <option value="Lunch">Lunch</option>
+      <option value="Middag">Middag</option>
+      <option value="Mellanmål">Mellanmål</option>
+    </select>
+    <div className="absolute inset-y-0 right-0 flex items-center px-3 pointer-events-none">
+      <svg
+        className="w-4 h-4 text-gray-600"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
       >
-        {showForm ? 'Stäng formulär' : 'Logga måltid'}
-      </button>
-      {showForm && (
-        <form onSubmit={handleSubmit} className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 w-full max-w-4xl">
-          {error && <p className="text-red-500 text-xs italic mb-4">{error}</p>}
-          <div className="mb-4">
-            <label className="block text-gray-700 text-sm font-bold mb-2">Titel:</label>
-            <input type="text" name="title" value={meal.title} onChange={handleChange} className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
-          </div>
-          <div className="mb-4">
-            <label className="block text-gray-700 text-sm font-bold mb-2">Energi:</label>
-            <input type="text" name="energy" value={meal.energy} onChange={handleChange} className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
-          </div>
-          <div className="mb-4">
-            <label className="block text-gray-700 text-sm font-bold mb-2">Datum:</label>
-            <input type="text" name="date" value={meal.date} onChange={handleChange} className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
-          </div>
-          <div className="mb-4">
-            <label className="block text-gray-700 text-sm font-bold mb-2">Protein:</label>
-            <input type="text" name="protein" value={meal.protein} onChange={handleChange} className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
-          </div>
-          <div className="mb-4">
-            <label className="block text-gray-700 text-sm font-bold mb-2">Kolhydrat:</label>
-            <input type="text" name="carbohydrate" value={meal.carbohydrate} onChange={handleChange} className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
-          </div>
-          <div className="mb-4">
-            <label className="block text-gray-700 text-sm font-bold mb-2">Fett:</label>
-            <input type="text" name="fat" value={meal.fat} onChange={handleChange} className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
-          </div>
-          <div className="mb-4">
-            <label className="block text-gray-700 text-sm font-bold mb-2">Kategori:</label>
-            <input type="text" name="category" value={meal.category} onChange={handleChange} className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
-          </div>
-          <button type="submit" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
-            {editingMeal ? 'Uppdatera måltid' : 'Logga måltid'}
-          </button>
-        </form>
-      )}
-      <div className="w-full max-w-4xl">
-        <MealList meals={mealData} onEdit={handleEdit} /> {/* Använd mockdatan här */}
-      </div>
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 9l4-4 4 4m0 6l-4 4-4-4" />
+      </svg>
+    </div>
+  </div>
+</div>
+
+        <button type="submit" className="bg-primary hover:bg-primary-hover text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+          {editingMeal ? 'Uppdatera måltid' : 'Logga måltid'}
+        </button>
+      </form>
+
+      <MealList meals={mealLogs} onEdit={handleEdit} />
     </div>
   );
 };
