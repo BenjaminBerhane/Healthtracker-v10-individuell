@@ -34,7 +34,7 @@ const router = createBrowserRouter([
       {
         path: "profilecard",
         element: (
-          <Suspense fallback={<div>Loading...</div>}>
+          <Suspense fallback={<div className="p-4 text-2xl text-accent">Loading...</div>}>
             <ProfileCard />
           </Suspense>
         ),
