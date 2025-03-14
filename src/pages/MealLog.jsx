@@ -3,6 +3,7 @@ import MealList from '../components/MealList';
 import { useSelector, useDispatch } from "react-redux";
 import { addMeal, updateMeal } from "../reducers/mealSlice";
 import { v4 as uuidv4 } from "uuid";
+import { Button } from '@/components/ui/button';
 
 const MealLog = () => {
 
@@ -120,9 +121,9 @@ const MealLog = () => {
           </div>
         </div>
 
-        <button type="submit" className="bg-primary hover:bg-primary-hover text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+        <Button type="submit" className="">
           {editingMeal ? 'Uppdatera måltid' : 'Logga måltid'}
-        </button>
+        </Button>
       </form>
       <MealList meals={mealLogs} onEdit={handleEdit} />
     </main>
