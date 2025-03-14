@@ -4,7 +4,7 @@ import MealListItem from '../MealListItem';
 import { Button } from '../ui/button';
 import { PlusCircle } from 'lucide-react';
 
-const TodaysMeals = ({ onEdit }) => {
+const TodaysMeals = ( ) => {
   const meals = useSelector((state) => state.meals.mealLogs || []); // Ensure meals is always an array
 
   const todaysDate = new Date();
@@ -22,7 +22,7 @@ const TodaysMeals = ({ onEdit }) => {
       {todaysMeals.length !== 0 && (
         <div>
           {todaysMeals.map((meal) => (
-            <MealListItem key={meal.id} meal={meal} onEdit={onEdit}/>
+            <MealListItem key={meal.id} meal={meal} />
           ))}
         </div>
       )}

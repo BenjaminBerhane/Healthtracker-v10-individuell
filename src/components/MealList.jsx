@@ -11,7 +11,7 @@ const MealList = ({ meals = [], onEdit }) => {
       <ul>
         {sortedMeals.map((meal, index) => (
           <li key={index}>
-            <MealListItem meal={meal} onEdit={onEdit} />
+            <MealListItem meal={meal} onEdit={onEdit} editButton={1} />
           </li>
         ))}
       </ul>

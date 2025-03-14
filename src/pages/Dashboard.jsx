@@ -4,6 +4,7 @@ import AddWeight from '../components/AddWeight';
 import TodaysMeals from '../components/dashboard/TodaysMeals';
 import KcalStatus from '../components/dashboard/KcalStatus';
 import WelcomeProfile from '@/components/dashboard/WelcomeProfile';
+import { Navigate } from 'react-router';
 
 const Dashboard = () => {
   const [showAddWeight, setShowAddWeight] = useState(false);
