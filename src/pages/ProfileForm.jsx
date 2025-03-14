@@ -54,7 +54,6 @@ const ProfileForm = () => {
       isNaN(numericGoal) ||
       isNaN(numericAge)
     ) {
-      console.error("Missing values for TDEE calculation");
       return;
     }
 
