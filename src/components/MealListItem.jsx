@@ -11,11 +11,11 @@ const MealListItem = ({ meal, onEdit = () => {}, editButton = null }) => {
     <details className="bg-white shadow-md rounded p-4 mb-4 border-1 border-accent/30" onClick={toggleDetails}>
       <summary className="flex justify-between items-center cursor-pointer">
         <div>
-          <h3 className="text-xl font-bold mb-2 text-accent text-left">{meal.title}</h3>
-          <p className="text-gray-600 text-left">Energi: <span className="text-primary font-bold">{meal.energy}</span> kcal</p>
+          <h3 className="text-xl font-bold mb-2 text-accent">{meal.title}</h3>
+          <p className="text-gray-600">Energi: <span className="text-primary font-bold">{meal.energy}</span> kcal</p>
         </div>
-        <span className="" style={{transform: `rotate(${showDetails ? 180 : 0}deg)`}}>
-          <svg xmlns="http://www.w3.org/2000/svg" className="m-4 h-6 w-6 cursor-pointer" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} style={{ transform: 'rotate(90deg)' }}>
+        <span className="inline-block" style={{transform: `rotate(${showDetails ? 180 : 0}deg)`}}>
+          <svg xmlns="http://www.w3.org/2000/svg" className="inline-block h-6 w-6 cursor-pointer" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} style={{ transform: 'rotate(90deg)' }}>
             <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
           </svg>
         </span>
