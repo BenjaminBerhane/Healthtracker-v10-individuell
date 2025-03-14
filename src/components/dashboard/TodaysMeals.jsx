@@ -14,7 +14,7 @@ const TodaysMeals = ( ) => {
 
   return (
     <section className='card'>
-      <h3 className='text-lg font-bold'>Idag </h3>
+      <h3 className='text-lg font-bold'>Dagens måltider </h3>
       <p className='text-sm text-gray-500'>{formattedDate}</p>
       {todaysMeals.length === 0 && <p className='text-sm text-gray-500 card'>Inga måltider registrerade idag.</p>}
 
