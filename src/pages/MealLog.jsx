@@ -65,17 +65,14 @@ const MealLog = () => {
 
   return (
     <div className="container mx-auto p-4 flex flex-col items-center">
-      <div className="w-full max-w-4xl">
-        <MealList meals={mealData} onEdit={handleEdit} /> {/* Använd mockdatan här */}
-      </div>
       <button 
         onClick={() => setShowForm(!showForm)} 
-        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline mt-4"
+        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline mb-4"
       >
         {showForm ? 'Stäng formulär' : 'Logga måltid'}
       </button>
       {showForm && (
-        <form onSubmit={handleSubmit} className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 mt-4 w-full max-w-4xl">
+        <form onSubmit={handleSubmit} className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 w-full max-w-4xl">
           {error && <p className="text-red-500 text-xs italic mb-4">{error}</p>}
           <div className="mb-4">
             <label className="block text-gray-700 text-sm font-bold mb-2">Titel:</label>
@@ -110,6 +107,9 @@ const MealLog = () => {
           </button>
         </form>
       )}
+      <div className="w-full max-w-4xl">
+        <MealList meals={mealData} onEdit={handleEdit} /> {/* Använd mockdatan här */}
+      </div>
     </div>
   );
 };
