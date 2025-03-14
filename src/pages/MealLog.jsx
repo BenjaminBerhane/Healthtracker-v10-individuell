@@ -67,31 +67,31 @@ const MealLog = () => {
       <form onSubmit={handleSubmit} className="bg-white shadow-md card px-8 pt-6 max-w-[500px]">
         {error && <p className="text-red-500 text-xs italic mb-4">{error}</p>}
         <div className="mb-4">
-          <label htmlFor="title" className="block text-accent text-sm font-bold mb-2">Måltid:</label>
+          <label htmlFor="title" className="block text-accent text-sm font-bold mb-2 text-left">Måltid:</label>
           <input type="text" id="title" name="title" value={meal.title} onChange={handleChange} className="shadow appearance-none border rounded w-full py-2 px-3 text-accent leading-tight focus:outline-none focus:shadow-outline" />
         </div>
         <div className="mb-4">
-          <label htmlFor="energy" className="block text-accent text-sm font-bold mb-2">Energi:</label>
+          <label htmlFor="energy" className="block text-accent text-sm font-bold mb-2 text-left">Energi:</label>
           <input type="text" id="energy" name="energy" value={Number(meal.energy)} onChange={handleChange} className="shadow appearance-none border rounded w-full py-2 px-3 text-accent leading-tight focus:outline-none focus:shadow-outline" />
         </div>
         <div className="mb-4">
-          <label htmlFor="date" className="block text-accent text-sm font-bold mb-2">Datum:</label>
+          <label htmlFor="date" className="block text-accent text-sm font-bold mb-2 text-left">Datum:</label>
           <input type="text" id="date" name="date" value={meal.date} onChange={handleChange} className="shadow appearance-none border rounded w-full py-2 px-3 text-accent leading-tight focus:outline-none focus:shadow-outline" />
         </div>
         <div className="mb-4">
-          <label htmlFor="protein" className="block text-accent text-sm font-bold mb-2">Protein:</label>
+          <label htmlFor="protein" className="block text-accent text-sm font-bold mb-2 text-left">Protein:</label>
           <input type="text" id="protein" name="protein" value={meal.protein} onChange={handleChange} className="shadow appearance-none border rounded w-full py-2 px-3 text-accent leading-tight focus:outline-none focus:shadow-outline" />
         </div>
         <div className="mb-4">
-          <label htmlFor="carbohydrate" className="block text-accent text-sm font-bold mb-2">Kolhydrat:</label>
+          <label htmlFor="carbohydrate" className="block text-accent text-sm font-bold mb-2 text-left">Kolhydrat:</label>
           <input type="text" id="carbohydrate" name="carbohydrate" value={meal.carbohydrate} onChange={handleChange} className="shadow appearance-none border rounded w-full py-2 px-3 text-accent leading-tight focus:outline-none focus:shadow-outline" />
         </div>
         <div className="mb-4">
-          <label htmlFor="fat" className="block text-accent text-sm font-bold mb-2">Fett:</label>
+          <label htmlFor="fat" className="block text-accent text-sm font-bold mb-2 text-left">Fett:</label>
           <input type="text" id="fat" name="fat" value={meal.fat} onChange={handleChange} className="shadow appearance-none border rounded w-full py-2 px-3 text-accent leading-tight focus:outline-none focus:shadow-outline" />
         </div>
         <div className="w-full">
-          <label htmlFor="category" className="block text-accent text-sm font-bold mb-2">Kategori:</label>
+          <label htmlFor="category" className="block text-accent text-sm font-bold mb-2 text-left">Kategori:</label>
           <div className="relative w-full">
             <select
               id="category"
@@ -130,3 +130,4 @@ const MealLog = () => {
 };
 
 export default MealLog;
+
