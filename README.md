@@ -28,7 +28,7 @@ Följ dessa steg för att komma igång med projektet lokalt:
    ```bash
    npm run dev
    ```
-   Applikationen kommer att köras lokalt (ofta på [http://localhost:3000](http://localhost:3000) eller annan specificerad port).
+   Applikationen kommer att köras lokalt (ofta på [http://localhost:5173](http://localhost:5173) eller annan specificerad port).
 
 ## Vanliga fel
 
