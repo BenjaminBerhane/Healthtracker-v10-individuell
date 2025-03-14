@@ -3,7 +3,6 @@ import MealList from '../components/MealList';
 import { useSelector, useDispatch } from "react-redux";
 import { addMeal, updateMeal } from "../reducers/mealSlice";
 import { v4 as uuidv4 } from "uuid";
-import mealData from '../utils/mockData'; // Importera mockdatan
 
 const MealLog = () => {
 
@@ -22,7 +21,7 @@ const MealLog = () => {
 
   const [editingMeal, setEditingMeal] = useState(null);
   const [error, setError] = useState('');
-  const [showForm, setShowForm] = useState(false);
+  // const [showForm, setShowForm] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -54,13 +53,13 @@ const MealLog = () => {
       fat: '',
       category: ''
     });
-    setShowForm(false);
+    // setShowForm(false);
   };
 
   const handleEdit = (meal) => {
     setMeal(meal);
     setEditingMeal(meal);
-    setShowForm(true);
+    // setShowForm(true);
   };
 
   return (
