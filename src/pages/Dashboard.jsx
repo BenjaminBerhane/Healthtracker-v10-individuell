@@ -22,9 +22,9 @@ const Dashboard = () => {
             <CurrentWeight />
           </div>
         )}
-
-        <EnergyPieChart energyData={energyData} />
-
+        <section className="card">
+          <EnergyPieChart energyData={energyData} />
+        </section>
       </div>
     </main>
   );
