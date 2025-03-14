@@ -2,6 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router';
 import AddWeight from '../AddWeight';
+import { Button } from '../ui/button';
 
 const ProfileCard = () => {
   const { weight, height, age, activityLevel, goal, tdee } = useSelector((state) => state.profile);
@@ -56,12 +57,12 @@ const ProfileCard = () => {
         </div>
 
 
-        <button
+        <Button
           onClick={handleClick}
-          className="hidden group-hover:block w-full bg-green-600 text-white rounded py-2 hover:bg-green-700 transition duration-200"
+          className="hidden group-hover:block w-full"
         >
           Ändra Profil
-        </button>
+        </Button>
       </section>
   );
 };
