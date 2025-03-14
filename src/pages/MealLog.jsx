@@ -63,7 +63,7 @@ const MealLog = () => {
   };
 
   return (
-    <div className="container mx-auto p-4 flex justify-center flex-row gap-4 items-start flex-wrap max-w-[1000px]">
+    <main className="container mx-auto p-4 flex justify-center flex-row gap-4 items-start flex-wrap max-w-[1000px]">
       <form onSubmit={handleSubmit} className="bg-white shadow-md card px-8 pt-6 max-w-[500px]">
         {error && <p className="text-red-500 text-xs italic mb-4">{error}</p>}
         <div className="mb-4">
@@ -125,7 +125,7 @@ const MealLog = () => {
         </button>
       </form>
       <MealList meals={mealLogs} onEdit={handleEdit} />
-    </div>
+    </main>
   );
 };
 
