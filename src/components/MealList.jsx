@@ -7,7 +7,7 @@ const MealList = ({ meals = [], onEdit }) => {
 
   return (
     <div className="card">
-      <h2 className="text-2xl font-bold mb-4 text-center">Loggade måltider</h2>
+      <h2 className="text-2xl font-bold mb-4 text-center text-primary">Loggade måltider</h2>
       <div className="flex flex-wrap justify-center items-center -mx-2 gap-2">
         {sortedMeals.map((meal, index) => (
           <li key={index} className='list-none'>

@@ -67,38 +67,38 @@ const MealLog = () => {
       <form onSubmit={handleSubmit} className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 max-w-[500px]">
         {error && <p className="text-red-500 text-xs italic mb-4">{error}</p>}
         <div className="mb-4">
-          <label htmlFor="title" className="block text-gray-700 text-sm font-bold mb-2">Måltid:</label>
-          <input type="text" id="title" name="title" value={meal.title} onChange={handleChange} className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
+          <label htmlFor="title" className="block text-accent text-sm font-bold mb-2">Måltid:</label>
+          <input type="text" id="title" name="title" value={meal.title} onChange={handleChange} className="shadow appearance-none border rounded w-full py-2 px-3 text-accent leading-tight focus:outline-none focus:shadow-outline" />
         </div>
         <div className="mb-4">
-          <label htmlFor="energy" className="block text-gray-700 text-sm font-bold mb-2">Energi:</label>
-          <input type="text" id="energy" name="energy" value={Number(meal.energy)} onChange={handleChange} className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
+          <label htmlFor="energy" className="block text-accent text-sm font-bold mb-2">Energi:</label>
+          <input type="text" id="energy" name="energy" value={Number(meal.energy)} onChange={handleChange} className="shadow appearance-none border rounded w-full py-2 px-3 text-accent leading-tight focus:outline-none focus:shadow-outline" />
         </div>
         <div className="mb-4">
-          <label htmlFor="date" className="block text-gray-700 text-sm font-bold mb-2">Datum:</label>
-          <input type="text" id="date" name="date" value={meal.date} onChange={handleChange} className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
+          <label htmlFor="date" className="block text-accent text-sm font-bold mb-2">Datum:</label>
+          <input type="text" id="date" name="date" value={meal.date} onChange={handleChange} className="shadow appearance-none border rounded w-full py-2 px-3 text-accent leading-tight focus:outline-none focus:shadow-outline" />
         </div>
         <div className="mb-4">
-          <label htmlFor="protein" className="block text-gray-700 text-sm font-bold mb-2">Protein:</label>
-          <input type="text" id="protein" name="protein" value={meal.protein} onChange={handleChange} className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
+          <label htmlFor="protein" className="block text-accent text-sm font-bold mb-2">Protein:</label>
+          <input type="text" id="protein" name="protein" value={meal.protein} onChange={handleChange} className="shadow appearance-none border rounded w-full py-2 px-3 text-accent leading-tight focus:outline-none focus:shadow-outline" />
         </div>
         <div className="mb-4">
-          <label htmlFor="carbohydrate" className="block text-gray-700 text-sm font-bold mb-2">Kolhydrat:</label>
-          <input type="text" id="carbohydrate" name="carbohydrate" value={meal.carbohydrate} onChange={handleChange} className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
+          <label htmlFor="carbohydrate" className="block text-accent text-sm font-bold mb-2">Kolhydrat:</label>
+          <input type="text" id="carbohydrate" name="carbohydrate" value={meal.carbohydrate} onChange={handleChange} className="shadow appearance-none border rounded w-full py-2 px-3 text-accent leading-tight focus:outline-none focus:shadow-outline" />
         </div>
         <div className="mb-4">
-          <label htmlFor="fat" className="block text-gray-700 text-sm font-bold mb-2">Fett:</label>
-          <input type="text" id="fat" name="fat" value={meal.fat} onChange={handleChange} className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
+          <label htmlFor="fat" className="block text-accent text-sm font-bold mb-2">Fett:</label>
+          <input type="text" id="fat" name="fat" value={meal.fat} onChange={handleChange} className="shadow appearance-none border rounded w-full py-2 px-3 text-accent leading-tight focus:outline-none focus:shadow-outline" />
         </div>
         <div className="mb-4">
-          <label htmlFor="category" className="block text-gray-700 text-sm font-bold mb-2">Kategori:</label>
+          <label htmlFor="category" className="block text-accent text-sm font-bold mb-2">Kategori:</label>
           <div className="relative w-full">
             <select
               id="category"
               name="category"
               value={meal.category}
               onChange={handleChange}
-              className="block w-full px-4 py-2 pr-10 text-gray-700 bg-white border border-gray-300 rounded shadow focus:outline-none focus:ring-2 focus:ring-accent focus:border-accent appearance-none"
+              className="block w-full px-4 py-2 pr-10 text-accent bg-white border border-gray-300 rounded shadow focus:outline-none focus:ring-2 focus:ring-accent focus:border-accent appearance-none"
             >
               <option value="">Välj kategori</option>
               <option value="Frukost">Frukost</option>
