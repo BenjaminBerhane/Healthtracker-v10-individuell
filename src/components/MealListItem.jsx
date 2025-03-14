@@ -14,8 +14,8 @@ const MealListItem = ({ meal, onEdit = () => {}, editButton = null }) => {
           <h3 className="text-xl font-bold mb-2 text-accent text-left">{meal.title}</h3>
           <p className="text-gray-600">Energi: <span className="text-primary font-bold">{meal.energy}</span> kcal</p>
         </div>
-        <span className="ml-2" style={{transform: `rotate(${showDetails ? 180 : 0}deg)`}}>
-          <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 cursor-pointer" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+        <span className="ml-4" style={{transform: `rotate(${showDetails ? 180 : 0}deg)`}}>
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 cursor-pointer" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} style={{ transform: 'rotate(90deg)' }}>
             <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
           </svg>
         </span>
