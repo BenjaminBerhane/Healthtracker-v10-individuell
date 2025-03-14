@@ -1,26 +1,23 @@
-
-  /** @type {import('tailwindcss').Config} */
+/** @type {import('tailwindcss').Config} */
 export default {
-    content: [
-      "./index.html",
-      "./src/**/*.{js,jsx}"
-    ],
-    theme: {
-      extend: {
-        colors: {
-          primary: "#1d4ed8", // Change this to your preferred color
-          "primary-foreground": "#ffffff",
-          secondary: "#ffffff", // Change this to your preferred color
-          "secondary-foreground": "#252525FF",
-          destructive: "#dc2626",
-          accent: "#f3f4f6",
-          ring: "#3b82f6",
-          background: "#ffffff",
-          input: "#e5e7eb",
-          primaryHover:"#023915",
-        },
+  content: [
+    "./index.html",
+    "./src/**/*.{js,jsx,ts,tsx}",
+  ],
+  theme: {
+    extend: {
+      colors: {
+        primary: "var(--primary)", 
+        "primary-foreground": "var(--primary-foreground)", 
+        secondary: "var(--secondary)", 
+        "secondary-foreground": "rgb(var(--secondary-foreground) / <alpha-value>)", // ✅ Ensure Tailwind resolves this properly
+        destructive: "var(--destructive)", 
+        accent: "var(--accent)", 
+        ring: "var(--ring)", 
+        input: "var(--input)",
       },
     },
-    plugins: [],
-  };
-  
+  },
+  darkMode: "class",
+  plugins: [],
+};
