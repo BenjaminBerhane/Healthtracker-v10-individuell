@@ -10,7 +10,7 @@ const MealList = ({ meals = [], onEdit }) => {
       <h2 className="text-2xl font-bold mb-4 text-center text-primary">Loggade måltider</h2>
       <div className="flex flex-wrap justify-center items-center -mx-2 gap-2 w-fit">
         {sortedMeals.map((meal, index) => (
-          <div key={index} className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 px-2 mb-4">
+          <div key={index} class="w-full px-2 mb-4">
             <MealListItem meal={meal} onEdit={onEdit} />
           </div>
         ))}
