@@ -8,7 +8,7 @@ const MealListItem = ({ meal, onEdit = () => {}, editButton = null }) => {
   };
 
   return (
-    <details className="bg-white shadow-md rounded p-4 mb-4" onClick={toggleDetails}>
+    <details className="bg-white shadow-md rounded p-4 mb-4 border-1 border-accent/30" onClick={toggleDetails}>
       <summary className="flex justify-between items-center cursor-pointer">
         <div>
           <h3 className="text-xl font-bold mb-2">{meal.title}</h3>
