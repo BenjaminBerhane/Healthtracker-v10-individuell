@@ -1,10 +1,13 @@
 import { configureStore } from "@reduxjs/toolkit";
 import profileReducer from "./reducers/profileSlice";
 import mealReducer from "./reducers/mealSlice";
-import { loadState, saveState } from "./utils/storage";
+import { loadMealLogs, saveMealLogs, loadProfile, saveProfile } from "./utils/storage";
 
 // Ladda data från localStorage
-const preloadedState = loadState();
+const preloadedState = {
+  meals: { mealLogs: loadMealLogs() },
+  profile: loadProfile(),
+};
 
 const store = configureStore({
   reducer: {
@@ -16,7 +19,9 @@ const store = configureStore({
 
 // Spara till localStorage vid ändringar
 store.subscribe(() => {
-  saveState(store.getState());
+  const state = store.getState();
+  saveMealLogs(state.meals.mealLogs);
+  saveProfile(state.profile);
 });
 
 export default store;
