@@ -1,5 +1,6 @@
 import React from 'react';
 import { Pie } from 'react-chartjs-2';
+
 import {
     Chart as ChartJS,
     ArcElement,
@@ -11,15 +12,21 @@ import {
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 const EnergyPieChart = ({ energyData }) => {
+    const getCSSVariable = (variable) => getComputedStyle(document.documentElement).getPropertyValue(variable).trim();
+
+    const primaryColor = getCSSVariable('--color-primary') || '#079137';
+    const secondaryColor = getCSSVariable('--color-secondary') || '#ececec';
+    const accentColor = getCSSVariable('--accent') 
+
     const data = {
         labels: ['Kolhydrater', 'Fett', 'Protein'],
         datasets: [
             {
                 data: energyData,
                 backgroundColor: [
-                    'rgba(255, 99, 132, 0.6)',
-                    'rgba(54, 162, 235, 0.6)',
-                    'rgba(255, 206, 86, 0.6)',
+                    primaryColor,
+                    secondaryColor,
+                    accentColor,
                 ],
                 hoverBackgroundColor: [
                     'rgba(255, 99, 132, 1)',
