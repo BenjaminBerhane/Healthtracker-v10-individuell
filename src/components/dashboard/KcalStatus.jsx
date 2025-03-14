@@ -29,7 +29,7 @@ const KcalStatus = () => {
   return (
     <section className='card flex items-center'>
       <p className='font-bold text-primary text-2xl'>{Math.round(remainingKcal)}</p>
-      <h3>kcal kvar idag</h3>
+      <p>kcal kvar idag</p>
     </section>
   );
 };
