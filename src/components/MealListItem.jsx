@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import '../pages/MealLog.css';
 
 const MealListItem = ({ meal, onEdit = () => {}, editButton = null }) => {
   const [showDetails, setShowDetails] = useState(false);

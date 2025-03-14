@@ -3,12 +3,12 @@ import MealList from '../components/MealList';
 import { useSelector, useDispatch } from "react-redux";
 import { addMeal, updateMeal } from "../reducers/mealSlice";
 import { v4 as uuidv4 } from "uuid";
+import mealData from '../utils/mockData'; // Importera mockdatan
 
 const MealLog = () => {
 
   const dispatch = useDispatch();
   const mealLogs = useSelector((state) => state.meals?.mealLogs ?? []);
-
 
   const [meal, setMeal] = useState({
     title: '',
@@ -22,6 +22,7 @@ const MealLog = () => {
 
   const [editingMeal, setEditingMeal] = useState(null);
   const [error, setError] = useState('');
+  const [showForm, setShowForm] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -33,7 +34,6 @@ const MealLog = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // kolla att alla fält är ifyllda
     if (!meal.title || !meal.energy || !meal.date || !meal.protein || !meal.carbohydrate || !meal.fat || !meal.category) {
       setError('Alla fält måste fyllas i.');
       return;
@@ -54,11 +54,13 @@ const MealLog = () => {
       fat: '',
       category: ''
     });
+    setShowForm(false);
   };
 
   const handleEdit = (meal) => {
     setMeal(meal);
     setEditingMeal(meal);
+    setShowForm(true);
   };
 
   return (
