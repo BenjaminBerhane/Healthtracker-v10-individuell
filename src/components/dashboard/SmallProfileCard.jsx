@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router';
-import AddWeight from '../components/AddWeight';
+import AddWeight from '../AddWeight';
 
 const ProfileCard = () => {
   const { weight, height, age, activityLevel, goal, tdee } = useSelector((state) => state.profile);
@@ -10,6 +10,7 @@ const ProfileCard = () => {
   const firstWeight = weight.length > 0 ? weight[0].weight : 0;
   const latestWeight = weight.length > 0 ? weight[weight.length - 1].weight : 0;
   const weightChange = latestWeight - firstWeight;
+  const userName = "User"
 
   const getActivityLevelDescription = (activityLevel) => {
     switch (activityLevel) {
@@ -47,30 +48,21 @@ const ProfileCard = () => {
   };
 
   return (
-    <main className="flex flex-col items-center gap-4 p-4 bg-green-50">
-    <div className="max-w-sm mx-auto bg-white text-black rounded-lg shadow-md p-6 mt-4 fixed-width">
-        <h2 className="text-2xl font-bold text-green-600 mb-4">Profilinformation</h2>
+    <section className="group bg-white text-black rounded-lg shadow-md p-6">
+        <h2 className="text-2xl font-bold text-green-600 mb-4">Hej {userName}! </h2>
         
         <div className="flex justify-center mb-4">
           <img src="src\assets\profilbild.jpg" alt="Profilbild" className="rounded-full w-28 h-28 object-cover" />
         </div>
 
-        <p className="mb-2 text-left text-lg"><strong>Vikt:</strong> {latestWeight} kg {weightChange < 0 ? `(${weightChange} kg)` : ''}</p>
-        <p className="mb-2 text-left text-lg"><strong>Längd:</strong> {height} cm</p>
-        <p className="mb-2 text-left text-lg"><strong>Ålder:</strong> {age} år</p>
-        <p className="mb-2 text-left text-lg"><strong>Aktivitetsnivå:</strong> {getActivityLevelDescription(activityLevel)}</p>
-        <p className="mb-2 text-left text-lg"><strong>Mål:</strong> {getGoalDescription(goal)}</p>
-        <p className="mb-4 text-left text-lg"><strong>Dagliga intag:</strong> {tdee ? Math.round(tdee) : 'Beräknas...'} kcal</p>
 
         <button
           onClick={handleClick}
-          className="w-full bg-green-600 text-white rounded py-2 hover:bg-green-700 hover:cursor-pointer transition duration-200"
+          className="hidden group-hover:block w-full bg-green-600 text-white rounded py-2 hover:bg-green-700 transition duration-200"
         >
           Ändra Profil
         </button>
-      </div>
-      <AddWeight />
-    </main>
+      </section>
   );
 };
 

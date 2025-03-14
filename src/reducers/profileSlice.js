@@ -1,16 +1,16 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice } from "@reduxjs/toolkit";
 
 const profileSlice = createSlice({
-  name: 'profile',
+  name: "profile",
   initialState: {
-    gender: '',
-    weight: [{id: 0, weight: 0, date: ""}],
+    gender: "",
+    weight: [{ id: 0, weight: 0, date: "" }],
     height: 0,
     age: 0,
-    activityLevel: 0,
+    activityLevel: 1.2,
     goal: 0,
     tdee: 0,
-    birthDate: 'åååå-mm-dd',
+    birthDate: "åååå-mm-dd",
   },
   reducers: {
     addWeight: (state, action) => {
@@ -46,7 +46,7 @@ const profileSlice = createSlice({
       state.tdee = action.payload;
     },
     setBirthDate: (state, action) => {
-      state.birthDate = action.payload; 
+      state.birthDate = action.payload;
     },
   },
 });

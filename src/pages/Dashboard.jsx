@@ -3,6 +3,8 @@ import CurrentWeight from '../components/dashboard/CurrentWeight';
 import AddWeight from '../components/AddWeight';
 import TodaysMeals from '../components/dashboard/TodaysMeals';
 import KcalStatus from '../components/dashboard/KcalStatus';
+import WelcomeProfile from '@/components/dashboard/WelcomeProfile';
+import { Navigate } from 'react-router';
 import EnergyPieChart from '../components/EnergyPieChart';
 
 const Dashboard = () => {
@@ -10,18 +12,26 @@ const Dashboard = () => {
   const energyData = [50, 30, 20]; // Exempeldata: 50% kolhydrater, 30% fett, 20% protein
 
   return (
-    <main className='flex flex-col align-center'>
-      <div className="max-w- [800px] p-4 flex flex-wrap items-start max-w-screen">
-        <KcalStatus />
-        <TodaysMeals />
-        
-        {showAddWeight ? (
-          <AddWeight onSubmit={() => setShowAddWeight(false)} />
-        ) : (
-          <div className="h-fit w-fit cursor-pointer" onClick={() => setShowAddWeight(true)}>
-            <CurrentWeight />
-          </div>
-        )}
+    <main className='flex justify-center items-start'>
+      <div className='grid grid-cols-1 md:grid-cols-2 gap-4 items-start max-w-[800px] p-4'>
+
+        {/* Left Column: Stacked vertically */}
+        <div className="flex flex-col gap-4">
+          <WelcomeProfile />
+          <KcalStatus />
+          {showAddWeight ? (
+            <AddWeight onSubmit={() => setShowAddWeight(false)} />
+          ) : (
+            <div className="m-0 cursor-pointer w-fit h-fit" onClick={() => setShowAddWeight(true)}>
+              <CurrentWeight />
+            </div>
+          )}
+        </div>
+
+        {/* Right Column (on larger screens), but moves under on smaller screens */}
+        <div className="md:col-span-1">
+          <TodaysMeals />
+        </div>
         <section className="card">
           <EnergyPieChart energyData={energyData} />
         </section>
