@@ -36,11 +36,11 @@ function WeightListItem({weightData}) {
           {weightData.weight}
           <span className='text-sm font-normal ml-1 text-black'>kg</span>
         </p>
-        <Button className='ml-auto text-gray-500' size={"icon"} variant={"ghost"} aria-label="Edit" onClick={handleEdit}>
-          <Edit />
+        <Button size={"default"} variant={"default"} aria-label="Edit" onClick={handleEdit}>
+          <Edit /> Ändra
         </Button>
-        <Button size={"icon"} variant={"ghost"} aria-label ="Remove" onClick={handleRemove}> 
-          <Delete/>
+        <Button size={"default"} variant={"destructive"} aria-label ="Remove" onClick={handleRemove}> 
+          <Delete/> Ta bort
         </Button>
       </div>
       {isEditing &&
@@ -70,10 +70,10 @@ function WeightListItem({weightData}) {
             className={`block w-fit border rounded p-2`}
           />
           <Button size={"default"} variant={"default"} aria-label="Edit" onClick={handleSave}>
-            <Save/>Save
+            <Save/>Spara
           </Button>
           <Button size={"default"} variant={"secondary"} aria-label ="Remove" onClick={handleCancel}> 
-            <X/>Cancel
+            <X/>Avbryt
           </Button>
         </form>
       }
