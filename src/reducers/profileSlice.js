@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, nanoid } from "@reduxjs/toolkit";
 
 const profileSlice = createSlice({
   name: "profile",
@@ -15,7 +15,7 @@ const profileSlice = createSlice({
   reducers: {
     addWeight: (state, action) => {
       const newWeight = {
-        id: state.weight.length + 1,
+        id: nanoid(),
         weight: action.payload.weight,
         date: action.payload.date,
       };
@@ -23,6 +23,16 @@ const profileSlice = createSlice({
     },
     displayWeight: (state, action) => {
       state.weight = action.payload;
+    },
+    editWeight: (state, action) => {
+      const { id, weight, date } = action.payload;
+      const weightIndex = state.weight.findIndex((weight) => weight.id === id);
+      if (weightIndex !== -1) {
+        state.weight[weightIndex] = { id, weight, date };
+      }
+    },
+    removeWeight: (state, action) => {
+      state.weight = state.weight.filter(weight => weight.id !== action.payload.id)
     },
     setGender: (state, action) => {
       state.gender = action.payload;
@@ -55,6 +65,8 @@ const profileSlice = createSlice({
 export const {
   addWeight,
   displayWeight,
+  editWeight,
+  removeWeight,
   setGender,
   setWeight,
   setHeight,
@@ -68,3 +80,4 @@ export const {
 export const selectTDEE = (state) => state.profile.tdee;
 
 export default profileSlice.reducer;
+

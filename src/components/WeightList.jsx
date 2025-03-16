@@ -4,11 +4,14 @@ import WeightListItem from './WeightListItem'
 
 function WeightList({weightData}) {
 
+  // Sortera listan efter datum
+  const sortedWeightData = [...weightData].sort((a, b) => new Date(b.date) - new Date(a.date));
+
   return (
-    <div className='card max-w-[300px] mx-auto'>
-      <h3 className='text-lg font-bold text-gray-700 mb-4'>Historik ViktLogg</h3>
-      {weightData.length > 0 ? (
-        weightData.map((weight) => (
+    <div className='card mx-auto'>
+      <h3 className='text-lg font-bold text-gray-700 mb-4'>Historik Vikt</h3>
+      {sortedWeightData.length > 0 ? (
+        sortedWeightData.map((weight) => (
           <WeightListItem key={weight.id} weightData={weight} />
         ))
       ) : (
