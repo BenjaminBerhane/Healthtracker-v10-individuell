@@ -50,7 +50,7 @@ const ProfileCard = () => {
   return (
     <main className="flex flex-col items-center gap-4 p-4">
     <div className="max-w-sm mx-auto card text-black rounded-lg shadow-md p-6 mt-4 fixed-width">
-        <h2 className="text-2xl font-bold text-green-600 mb-4">Profilinformation</h2>
+        <h2 className="text-2xl font-bold text-primary mb-4">Profilinformation</h2>
         
         <div className="flex justify-center mb-4">
           <img src="src\assets\profilbild.jpg" alt="Profilbild" className="rounded-full w-28 h-28 object-cover" />

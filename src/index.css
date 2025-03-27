@@ -14,13 +14,14 @@
   --background: #f2f3f2;
   --foreground: #000000;
   --card: oklch(1 0 0);
+  --card-secondary: oklch(0.985 0 0);
   --card-foreground: oklch(0.145 0 0);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.145 0 0);
   --primary: #07782f;
   --primary-hover: #03531f;
   --primary-foreground: #ffffff;
-  --secondary: #ececec;
+  --secondary: #787575;
   --secondary-foreground: #000000;
   --muted: oklch(0.97 0 0);
   --muted-foreground: oklch(0.556 0 0);
@@ -50,6 +51,7 @@
 .dark {
   --background: #232c26; 
   --card: #4d6653;
+  --card-secondary: green;
   --foreground: #000000;
   --card-foreground: oklch(0.145 0 0);
   --popover: oklch(1 0 0);
@@ -66,7 +68,7 @@
   --accent-foreground: #ffffff;
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
+  --border: rgb(11, 28, 11);
   --input: oklch(0.922 0 0);
   --ring: #1a1e44;
   --chart-1: oklch(0.646 0.222 41.116);
@@ -89,6 +91,7 @@
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
+  --color-card-secondary: var(--card-secondary);
   --color-card-foreground: var(--card-foreground);
   --color-popover: var(--popover);
   --color-popover-foreground: var(--popover-foreground);
@@ -98,7 +101,7 @@
   --color-secondary: var(--secondary);
   --color-secondary-foreground: var(--secondary-foreground);
   --color-muted: var(--muted);
-  --color-text-secondary: var(--text-secondary);
+  --color-text-secondary: var(--secondary);
   --color-muted-foreground: var(--muted-foreground);
   --color-accent: var(--accent);
   --color-accent-foreground: var(--accent-foreground);
@@ -138,6 +141,12 @@
   }
   .card {
     @apply bg-card flex flex-col gap-2 text-card-foreground w-fit rounded-md h-fit drop-shadow-[1px_1px_4px_rgba(0,0,0,0.1)];
+  }
+  .card-secondary {
+    @apply  bg-background text-secondary;
+  }
+  .text-secondary {
+    @apply text-secondary;
   }
 }
 

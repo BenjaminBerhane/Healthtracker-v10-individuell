@@ -24,7 +24,7 @@ const EnergyPieChart = ({ energyData }) => {
             {
                 data: energyData,
                 backgroundColor: [
-                    primaryColor,
+                    primaryColor ,
                     secondaryColor,
                     accentColor,
                 ],
@@ -45,8 +45,9 @@ const EnergyPieChart = ({ energyData }) => {
             },
             tooltip: {
                 callbacks: {
-                    label: (context) => {
-                        const label = context.label || '';
+                    label: 
+                    (context) => {
+                        const label  = context.label || '';
                         const value = context.raw || 0;
                         return `${label}: ${value}%`;
                     },

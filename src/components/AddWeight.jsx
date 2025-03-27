@@ -36,7 +36,7 @@ const AddWeight = ({onSubmit}) => {
       value={newWeight}
       onChange={(e) => setNewWeight(e.target.value)}
       placeholder="Ny vikt (kg)"
-      className="block w-full border rounded p-2 mb-4"
+      className="block w-full border rounded p-2 mb-4 "
     />
     <Button onClick={handleAddWeight} className="w-full">Registrera vikt</Button>
     <Button 
