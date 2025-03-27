@@ -120,7 +120,7 @@ const ProfileForm = () => {
 
   return (
     <main className="flex flex-col items-center p-4 gap-4">
-      <form className="w-full bg-white p-6 rounded-lg shadow-md mt-4 fixed-width">
+      <form className="w-full card p-6 rounded-lg shadow-md mt-4 fixed-width">
         <h2 className="text-2xl font-bold text-center text-green-600 mb-4">
           Profil
         </h2>

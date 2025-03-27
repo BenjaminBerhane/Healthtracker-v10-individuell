@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
-import {Button, buttonVariants} from './ui/button'
+import {Button, } from './ui/button'
 import { Edit, Delete, X, Save } from 'lucide-react';
-import { useDispatch, useSelector } from 'react-redux';
-import { removeWeight, editWeight, displayWeight } from '../reducers/profileSlice';
+import { useDispatch,  } from 'react-redux';
+import { removeWeight, editWeight,  } from '../reducers/profileSlice';
 
 function WeightListItem({weightData}) {
   const dispatch = useDispatch();
-  const { weight } = useSelector((state) => state.profile);
+  // const { weight } = useSelector((state) => state.profile);
   const [isEditing, setIsEditing] = useState(false);
   const [newWeight, setNewWeight] = useState(weightData.weight);
   const [newDate, setNewDate] = useState(weightData.date);

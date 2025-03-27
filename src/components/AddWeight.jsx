@@ -25,7 +25,7 @@ const AddWeight = ({onSubmit}) => {
   };
 
   return (
-    <div className="max-w-sm bg-white rounded-lg shadow-md p-6 fixed-width">
+    <div className="max-w-sm card rounded-lg shadow-md p-6 fixed-width">
     <h3 className="text-xl font-bold text-green-600 mb-4">Registrera din nya vikt</h3>
     <label htmlFor="new-weight" className="sr-only">
       Ny vikt (kg)
