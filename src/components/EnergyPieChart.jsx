@@ -16,7 +16,8 @@ const EnergyPieChart = ({ energyData }) => {
 
     const primaryColor = getCSSVariable('--color-primary') || '#079137';
     const secondaryColor = getCSSVariable('--color-secondary') || '#ececec';
-    const accentColor = getCSSVariable('--accent') 
+    const accentColor = getCSSVariable('--color-accent') || '#1a1e44';
+    const labelColor = getCSSVariable('--color-foreground') || '#000000'; // Dynamisk textfärg
 
     const data = {
         labels: ['Kolhydrater', 'Fett', 'Protein'],
@@ -24,7 +25,7 @@ const EnergyPieChart = ({ energyData }) => {
             {
                 data: energyData,
                 backgroundColor: [
-                    primaryColor ,
+                    primaryColor,
                     secondaryColor,
                     accentColor,
                 ],
@@ -42,12 +43,14 @@ const EnergyPieChart = ({ energyData }) => {
         plugins: {
             legend: {
                 position: 'top',
+                labels: {
+                    color: labelColor, 
+                },
             },
             tooltip: {
                 callbacks: {
-                    label: 
-                    (context) => {
-                        const label  = context.label || '';
+                    label: (context) => {
+                        const label = context.label || '';
                         const value = context.raw || 0;
                         return `${label}: ${value}%`;
                     },
@@ -58,7 +61,7 @@ const EnergyPieChart = ({ energyData }) => {
 
     return (
         <div>
-            <h2>Energiprocent</h2>
+            <h2 style={{ color: labelColor }}>Energiprocent</h2> {/* 🔥 Ändrar även rubrikens färg */}
             <Pie data={data} options={options} />
         </div>
     );
