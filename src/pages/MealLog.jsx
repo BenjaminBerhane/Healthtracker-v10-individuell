@@ -72,7 +72,7 @@ const MealLog = () => {
           <input type="text" id="title" name="title" value={meal.title} onChange={handleChange} className="shadow appearance-none border rounded w-full py-2 px-3 text-accent leading-tight focus:outline-none focus:shadow-outline" />
         </div>
         <div className="mb-4">
-          <label htmlFor="energy" className="block text-accent text-sm font-bold mb-2 text-left">Energi:</label>
+          <label htmlFor="energy" className="block text-accent text-sm font-bold mb-2 text-left">Kalorier:</label>
           <input type="text" id="energy" name="energy" value={Number(meal.energy)} onChange={handleChange} className="shadow appearance-none border rounded w-full py-2 px-3 text-accent leading-tight focus:outline-none focus:shadow-outline" />
         </div>
         <div className="mb-4">
