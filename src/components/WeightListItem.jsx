@@ -36,7 +36,7 @@ function WeightListItem({weightData}) {
           {weightData.weight}
           <span className='text-sm font-normal ml-1 text-black'>kg</span>
         </p>
-        <Button size={"default"} variant={"default"} aria-label="Edit" onClick={handleEdit}>
+        <Button size={"default"} variant={"secondary"} aria-label="Edit" onClick={handleEdit}>
           <Edit /> Ändra
         </Button>
         <Button size={"default"} variant={"destructive"} aria-label ="Remove" onClick={handleRemove}> 

@@ -20,13 +20,13 @@ const Dashboard = () => {
 
   return (
     <main className='flex justify-center items-start px-2 md:px-8'>
-   
+      <div className='grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8 max-w-5xl md:w-full'>
         <div className="flex flex-col gap-4 md:gap-8 md:col-span-2">
           <div className="flex flex-col md:flex-row gap-4 md:gap-8">
-              <div className="w-full md:w-1/2">
-                <WelcomeProfile />
-              </div>
-            <div className="flex flex-col gap-4 md:gap-8 flex-1">
+            <section className="w-full md:w-1/2">
+              <WelcomeProfile />
+            </section>
+            <section className="flex flex-col gap-4 md:gap-8 flex-1">
               <KcalStatus />
               <div className="m-0 cursor-pointer w-fit h-fit" onClick={() => setShowAddWeight(true)}>
                 {showAddWeight ? (
@@ -35,7 +35,7 @@ const Dashboard = () => {
                   <CurrentWeight />
                 )}
               </div>
-            </div>
+            </section>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8">
@@ -47,10 +47,12 @@ const Dashboard = () => {
             </section>
           </div>
         </div>
-        <div className="lg:col-span-1 md:col-span-2 justify-self-end sm:justify-self-center">
+
+
+        <div className="md:col-span-1 md:col-start-3 col-span-1 row-start-1 md:row-auto">
           <TodaysMeals />
         </div>
-     
+      </div>
     </main>
   );
 };
